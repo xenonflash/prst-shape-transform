@@ -1,0 +1,335 @@
+{
+    "declaration": {
+        "attrs": {
+            "version": "1.0",
+            "encoding": "utf-8"
+        }
+    },
+    "children": [
+        {
+            "type": "element",
+            "name": "presetShapeDefinitons",
+            "children": [
+                {
+                    "type": "element",
+                    "name": "roundRect",
+                    "children": [
+                        {
+                            "type": "element",
+                            "name": "avLst",
+                            "attrs": {
+                                "xmlns": "http://schemas.openxmlformats.org/drawingml/2006/main"
+                            },
+                            "children": [
+                                {
+                                    "type": "element",
+                                    "name": "gd",
+                                    "attrs": {
+                                        "name": "adj",
+                                        "fmla": "val 16667"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "gdLst",
+                            "attrs": {
+                                "xmlns": "http://schemas.openxmlformats.org/drawingml/2006/main"
+                            },
+                            "children": [
+                                {
+                                    "type": "element",
+                                    "name": "gd",
+                                    "attrs": {
+                                        "name": "a",
+                                        "fmla": "pin 0 adj 50000"
+                                    }
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "gd",
+                                    "attrs": {
+                                        "name": "x1",
+                                        "fmla": "*/ ss a 100000"
+                                    }
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "gd",
+                                    "attrs": {
+                                        "name": "x2",
+                                        "fmla": "+- r 0 x1"
+                                    }
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "gd",
+                                    "attrs": {
+                                        "name": "y2",
+                                        "fmla": "+- b 0 x1"
+                                    }
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "gd",
+                                    "attrs": {
+                                        "name": "il",
+                                        "fmla": "*/ x1 29289 100000"
+                                    }
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "gd",
+                                    "attrs": {
+                                        "name": "ir",
+                                        "fmla": "+- r 0 il"
+                                    }
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "gd",
+                                    "attrs": {
+                                        "name": "ib",
+                                        "fmla": "+- b 0 il"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "ahLst",
+                            "attrs": {
+                                "xmlns": "http://schemas.openxmlformats.org/drawingml/2006/main"
+                            },
+                            "children": [
+                                {
+                                    "type": "element",
+                                    "name": "ahXY",
+                                    "attrs": {
+                                        "gdRefX": "adj",
+                                        "minX": "0",
+                                        "maxX": "50000"
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "element",
+                                            "name": "pos",
+                                            "attrs": {
+                                                "x": "x1",
+                                                "y": "t"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "cxnLst",
+                            "attrs": {
+                                "xmlns": "http://schemas.openxmlformats.org/drawingml/2006/main"
+                            },
+                            "children": [
+                                {
+                                    "type": "element",
+                                    "name": "cxn",
+                                    "attrs": {
+                                        "ang": "3cd4"
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "element",
+                                            "name": "pos",
+                                            "attrs": {
+                                                "x": "hc",
+                                                "y": "t"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "cxn",
+                                    "attrs": {
+                                        "ang": "cd2"
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "element",
+                                            "name": "pos",
+                                            "attrs": {
+                                                "x": "l",
+                                                "y": "vc"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "cxn",
+                                    "attrs": {
+                                        "ang": "cd4"
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "element",
+                                            "name": "pos",
+                                            "attrs": {
+                                                "x": "hc",
+                                                "y": "b"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "cxn",
+                                    "attrs": {
+                                        "ang": "0"
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "element",
+                                            "name": "pos",
+                                            "attrs": {
+                                                "x": "r",
+                                                "y": "vc"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "rect",
+                            "attrs": {
+                                "l": "il",
+                                "t": "il",
+                                "r": "ir",
+                                "b": "ib",
+                                "xmlns": "http://schemas.openxmlformats.org/drawingml/2006/main"
+                            }
+                        },
+                        {
+                            "type": "element",
+                            "name": "pathLst",
+                            "attrs": {
+                                "xmlns": "http://schemas.openxmlformats.org/drawingml/2006/main"
+                            },
+                            "children": [
+                                {
+                                    "type": "element",
+                                    "name": "path",
+                                    "children": [
+                                        {
+                                            "type": "element",
+                                            "name": "moveTo",
+                                            "children": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "pt",
+                                                    "attrs": {
+                                                        "x": "l",
+                                                        "y": "x1"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "arcTo",
+                                            "attrs": {
+                                                "wR": "x1",
+                                                "hR": "x1",
+                                                "stAng": "cd2",
+                                                "swAng": "cd4"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "lnTo",
+                                            "children": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "pt",
+                                                    "attrs": {
+                                                        "x": "x2",
+                                                        "y": "t"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "arcTo",
+                                            "attrs": {
+                                                "wR": "x1",
+                                                "hR": "x1",
+                                                "stAng": "3cd4",
+                                                "swAng": "cd4"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "lnTo",
+                                            "children": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "pt",
+                                                    "attrs": {
+                                                        "x": "r",
+                                                        "y": "y2"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "arcTo",
+                                            "attrs": {
+                                                "wR": "x1",
+                                                "hR": "x1",
+                                                "stAng": "0",
+                                                "swAng": "cd4"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "lnTo",
+                                            "children": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "pt",
+                                                    "attrs": {
+                                                        "x": "x1",
+                                                        "y": "b"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "arcTo",
+                                            "attrs": {
+                                                "wR": "x1",
+                                                "hR": "x1",
+                                                "stAng": "cd4",
+                                                "swAng": "cd4"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "close"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

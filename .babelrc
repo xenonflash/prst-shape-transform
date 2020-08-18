@@ -1,0 +1,16 @@
+{
+  "presets": [
+      [
+          "@babel/preset-env",{
+            "targets" : {
+                "node": "6.0.0"
+            }
+          }
+      ],
+  ],
+  "plugins": [
+      ["@babel/plugin-transform-runtime", {
+          "corejs": 3 // 可选 false | 2 | 3
+      }]
+  ]
+}
