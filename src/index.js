@@ -3,7 +3,8 @@ const rs = require('path').resolve
 const _get = require('lodash/get')
 const _isEmpty = require('lodash/isEmpty')
 var convert = require('xml-js');
-const xml = fs.readFileSync(rs('src/round-rect.xml'))
+// const xml = fs.readFileSync(rs('src/round-rect.xml'))
+const xml = fs.readFileSync(rs('src/presetShapeDefinitions.xml'))
 var options = {
     ignoreComment: true,
     // alwaysChildren: true,
@@ -27,7 +28,7 @@ for (let shapeDef of shapeDefs) {
     const logic = parseGuides(gdLst)
     res += logic
     const svgGen = parsePath(pathLst)
-    res += `\nreturn ${svgGen}\n`
+    res += `\nreturn \`${svgGen}\`\n`
     res += '}'
     console.log(res)
 }
@@ -39,7 +40,7 @@ function parseAhList(ahList) {
 }
 
 function parseGuides(gdList) {
-    let gds = gdList.children
+    let gds = _get(gdList, 'children')
     if (_isEmpty(gds)) return '// no guides'
     let res = `
     var cos = Math.cos.bind(Math)
@@ -51,7 +52,7 @@ function parseGuides(gdList) {
     var min = Math.min.bind(Math)
     var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-    
+
     `
     const expressions = gds.map(gd => {
         const { name, fmla } = gd.attrs
@@ -90,7 +91,7 @@ function parseGuides(gdList) {
                 exp += `${x} * sin(atan(${z} / ${y}))`
                 break;
             case 'sin':
-                exp += `${x} * sin(atan(${z} / ${y}))`
+                exp += `${x} * sin(${y})`
                 break;
             case 'sqrt':
                 exp += `sqrt(${x})`
@@ -116,12 +117,12 @@ function parsePath(pathList) {
         switch (path.name) {
             case 'moveTo': {
                 const { x, y } = path.children[0].attrs
-                res += `M${x},${y}`
+                res += `M\$\{${x}\},\$\{${y}\}`
                 break
             }
             case 'lnTo': {
                 const { x, y } = path.children[0].attrs
-                res += `L${x},${y}`
+                res += `L\$\{${x}\},\$\{${y}\}`
                 break
             }
             case 'arcTo': {
