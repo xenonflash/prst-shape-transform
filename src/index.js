@@ -3,8 +3,10 @@ const rs = require('path').resolve
 const _get = require('lodash/get')
 const _isEmpty = require('lodash/isEmpty')
 var convert = require('xml-js');
-const xml = fs.readFileSync(rs('src/round-rect.xml'))
-// const xml = fs.readFileSync(rs('src/presetShapeDefinitions.xml'))
+var beautify = require('js-beautify').js
+
+const xml = fs.readFileSync(rs('src/presetShapeDefinitions.xml'))
+// const xml = fs.readFileSync(rs('src/round-rect.xml'))
 var options = {
     ignoreComment: true,
     // alwaysChildren: true,
@@ -15,8 +17,10 @@ var options = {
 var result = convert.xml2js(xml, options); // or convert.xml2json(xml, options)
 fs.writeFileSync('./result.json', JSON.stringify(result))
 const shapeDefs = result.children[0].children
+
+let functionTexts = ""
 for (let shapeDef of shapeDefs) {
-    let res = `function ${shapeDef.name}(w, h, l, r, t, b,`
+    let res = `function ${shapeDef.name}(w,h,l,r,t,b,`
     // 解析一条
     const { avLst, gdLst, ahLst, cxnLst, rect, pathLst } = shapeDef.children.reduce((accum, item) => {
         accum[item.name] = item
@@ -24,23 +28,25 @@ for (let shapeDef of shapeDefs) {
     }, {})
     const params = parseAhList(ahLst)
     res += params
-    res += ') {\n'
+    res += '){\n'
     const defaultParams = parseAvList(avLst)
     res += defaultParams
     res += '\n'
     const logic = parseGuides(gdLst)
     res += logic
-    const svgGen = parsePath(pathLst)
-    res += `\nreturn \`${svgGen}\`\n`
-    res += '}'
-    console.log(res)
+    const paths = parsePath(pathLst)
+    res += `\nreturn [${paths.toString()}]\n`
+    res += '}\n'
+    functionTexts += res
 }
+fs.writeFileSync('./shape-functions.js', beautify(functionTexts))
 /**
  * 返回 参数列表
  */
 function parseAhList(ahList) {
+    const list = _get(ahList, 'children', [])
     const res = []
-    for (let ah of ahList.children) {
+    for (let ah of list) {
         switch (ah.name) {
             case 'ahXY':
                 ah.attrs.gdRefX && res.push(ah.attrs.gdRefX)
@@ -79,41 +85,51 @@ function parseGuides(gdList) {
     return res + expressions.join('\n')
 }
 function parsePath(pathList) {
-    const paths = pathList.children.find(p => p.name === 'path').children
-    if (!paths) return '// no path'
-    let res = ""
-    paths.forEach(path => {
-        switch (path.name) {
-            case 'moveTo': {
-                const { x, y } = path.children[0].attrs
-                res += `M\$\{${x}\},\$\{${y}\}`
-                break
+    const paths = _get(pathList, 'children', [])
+    const res = paths.map(path => {
+        let pathStr = ""
+        path.children.forEach(directive => {
+            switch (directive.name) {
+                case 'moveTo': {
+                    const { x, y } = directive.children[0].attrs
+                    pathStr += `M\$\{${x}\},\$\{${y}\}`
+                    break
+                }
+                case 'lnTo': {
+                    const { x, y } = directive.children[0].attrs
+                    pathStr += `L\$\{${x}\},\$\{${y}\}`
+                    break
+                }
+                case 'arcTo': {
+                    console.log('arc', directive)
+                    // const { wR, hR, stAng, swAng } = path.attrs
+                    // TODO 转换
+                    // pathStr += `A${},${y},${},${},${},${}`
+                    break
+                }
+                case 'quadBezTo': {
+                    console.log('not supported', directive)
+                }
+                case 'cubicBezTo': {
+                    console.log('not suppored', directive)
+                }
+                case 'close': {
+                    pathStr += 'Z'
+                    break
+                }
+                default:
+                    console.log('not supported', directive)
+                    break
             }
-            case 'lnTo': {
-                const { x, y } = path.children[0].attrs
-                res += `L\$\{${x}\},\$\{${y}\}`
-                break
-            }
-            case 'arcTo': {
-                const { wR, hR, stAng, swAng } = path.attrs
-                // TODO 转换
-                // res += `A${},${y},${},${},${},${}`
-                break
-            }
-            case 'close': {
-                res += 'Z'
-                break
-            }
-            default:
-                console.log('not supported', path)
-                break
-        }
+        })
+        return '`' + pathStr + '`'
     })
     return res
 }
 function parseAvList(avList) {
+    const list = _get(avList, 'children', [])
     let res = ''
-    for (let defParam of avList.children) {
+    for (let defParam of list) {
         res += `${defParam.attrs.name} = ${defParam.attrs.name} || ${parseFmla(defParam.attrs.fmla)}\n`
     }
     return res
@@ -127,6 +143,7 @@ function parseFmla(fmlaStr) {
             return `${y} < ${x} ? ${x} : (${y} > ${z} ? ${z} : ${y})`
         case '*/':
         case '+-':
+        case '+/':
             return `${x} ${op[0]} ${y} ${op[1]} ${z}`
         case '?:':
             return `${x} > 0 ? ${y} : ${z}`
@@ -135,7 +152,7 @@ function parseFmla(fmlaStr) {
         case 'at2':
             return `atan2(${x}, ${y})` //TODO 可能有问题
         case 'cat2':
-            return `${x} * (cos(atan(${z} / ${y}))`
+            return `${x} * (cos(atan(${z} / ${y})))`
         case 'cos':
             return `max(${x}, ${y})`
         case 'cos':
@@ -150,6 +167,10 @@ function parseFmla(fmlaStr) {
             return `sqrt(${x})`
         case 'tan':
             return `${x} * tan(${y})`
+        case 'min':
+            return `min(${x}, ${y})`
+        case 'max':
+            return `max(${x}, ${y})`
         case 'val':
             return x
         default:
