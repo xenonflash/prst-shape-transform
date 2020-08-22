@@ -1,28 +1,26 @@
-function accentBorderCallout1(w, h, l, r, t, b, adj2, adj1, adj4, adj3) {
+var cos = Math.cos.bind(Math)
+var sin = Math.sin.bind(Math)
+var abs = Math.abs.bind(Math)
+var atan = Math.atan.bind(Math)
+var atan2 = Math.atan2.bind(Math)
+var max = Math.max.bind(Math)
+var min = Math.min.bind(Math)
+var sqrt = Math.sqrt.bind(Math)
+export function accentBorderCallout1(w, h, l, r, t, b, adj2, adj1, adj4, adj3) {
     adj1 = adj1 || 18750
     adj2 = adj2 || -8333
     adj3 = adj3 || 112500
     adj4 = adj4 || -38333
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var y1 = h * adj1 / 100000
     var x1 = w * adj2 / 100000
     var y2 = h * adj3 / 100000
     var x2 = w * adj4 / 100000
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`, `M${x1},${t}ZL${x1},${b}`, `M${x1},${y1}L${x2},${y2}`]
 }
-
-function accentBorderCallout2(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5) {
+export function accentBorderCallout2(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5) {
     adj1 = adj1 || 18750
     adj2 = adj2 || -8333
     adj3 = adj3 || 18750
@@ -31,16 +29,7 @@ function accentBorderCallout2(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, ad
     adj6 = adj6 || -46667
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var y1 = h * adj1 / 100000
     var x1 = w * adj2 / 100000
     var y2 = h * adj3 / 100000
@@ -49,8 +38,7 @@ function accentBorderCallout2(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, ad
     var x3 = w * adj6 / 100000
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`, `M${x1},${t}ZL${x1},${b}`, `M${x1},${y1}L${x2},${y2}L${x3},${y3}`]
 }
-
-function accentBorderCallout3(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5, adj8, adj7) {
+export function accentBorderCallout3(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5, adj8, adj7) {
     adj1 = adj1 || 18750
     adj2 = adj2 || -8333
     adj3 = adj3 || 18750
@@ -61,16 +49,7 @@ function accentBorderCallout3(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, ad
     adj8 = adj8 || -8333
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var y1 = h * adj1 / 100000
     var x1 = w * adj2 / 100000
     var y2 = h * adj3 / 100000
@@ -81,32 +60,21 @@ function accentBorderCallout3(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, ad
     var x4 = w * adj8 / 100000
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`, `M${x1},${t}ZL${x1},${b}`, `M${x1},${y1}L${x2},${y2}L${x3},${y3}L${x4},${y4}`]
 }
-
-function accentCallout1(w, h, l, r, t, b, adj2, adj1, adj4, adj3) {
+export function accentCallout1(w, h, l, r, t, b, adj2, adj1, adj4, adj3) {
     adj1 = adj1 || 18750
     adj2 = adj2 || -8333
     adj3 = adj3 || 112500
     adj4 = adj4 || -38333
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var y1 = h * adj1 / 100000
     var x1 = w * adj2 / 100000
     var y2 = h * adj3 / 100000
     var x2 = w * adj4 / 100000
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`, `M${x1},${t}ZL${x1},${b}`, `M${x1},${y1}L${x2},${y2}`]
 }
-
-function accentCallout2(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5) {
+export function accentCallout2(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5) {
     adj1 = adj1 || 18750
     adj2 = adj2 || -8333
     adj3 = adj3 || 18750
@@ -115,16 +83,7 @@ function accentCallout2(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5) {
     adj6 = adj6 || -46667
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var y1 = h * adj1 / 100000
     var x1 = w * adj2 / 100000
     var y2 = h * adj3 / 100000
@@ -133,8 +92,7 @@ function accentCallout2(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5) {
     var x3 = w * adj6 / 100000
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`, `M${x1},${t}ZL${x1},${b}`, `M${x1},${y1}L${x2},${y2}L${x3},${y3}`]
 }
-
-function accentCallout3(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5, adj8, adj7) {
+export function accentCallout3(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5, adj8, adj7) {
     adj1 = adj1 || 18750
     adj2 = adj2 || -8333
     adj3 = adj3 || 18750
@@ -145,16 +103,7 @@ function accentCallout3(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5, ad
     adj8 = adj8 || -8333
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var y1 = h * adj1 / 100000
     var x1 = w * adj2 / 100000
     var y2 = h * adj3 / 100000
@@ -165,20 +114,10 @@ function accentCallout3(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5, ad
     var x4 = w * adj8 / 100000
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`, `M${x1},${t}ZL${x1},${b}`, `M${x1},${y1}L${x2},${y2}L${x3},${y3}L${x4},${y4}`]
 }
+export function actionButtonBackPrevious(w, h, l, r, t, b, ) {
 
-function actionButtonBackPrevious(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var dx2 = ss * 3 / 8
     var g9 = vc + 0 - dx2
     var g10 = vc + dx2 - 0
@@ -186,20 +125,10 @@ function actionButtonBackPrevious(w, h, l, r, t, b, ) {
     var g12 = hc + dx2 - 0
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}ZM${g11},${vc}L${g12},${g9}L${g12},${g10}Z`, `M${g11},${vc}L${g12},${g9}L${g12},${g10}Z`, `M${g11},${vc}L${g12},${g9}L${g12},${g10}Z`, `M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`]
 }
+export function actionButtonBeginning(w, h, l, r, t, b, ) {
 
-function actionButtonBeginning(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var dx2 = ss * 3 / 8
     var g9 = vc + 0 - dx2
     var g10 = vc + dx2 - 0
@@ -212,26 +141,15 @@ function actionButtonBeginning(w, h, l, r, t, b, ) {
     var g17 = g11 + g15 - 0
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}ZM${g17},${vc}L${g12},${g9}L${g12},${g10}ZM${g16},${g9}L${g11},${g9}L${g11},${g10}L${g16},${g10}Z`, `M${g17},${vc}L${g12},${g9}L${g12},${g10}ZM${g16},${g9}L${g11},${g9}L${g11},${g10}L${g16},${g10}Z`, `M${g17},${vc}L${g12},${g9}L${g12},${g10}ZM${g16},${g9}L${g16},${g10}L${g11},${g10}L${g11},${g9}Z`, `M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`]
 }
-
-function actionButtonBlank(w, h, l, r, t, b, ) {
+export function actionButtonBlank(w, h, l, r, t, b, ) {
 
     // no guides
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`]
 }
+export function actionButtonDocument(w, h, l, r, t, b, ) {
 
-function actionButtonDocument(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var dx2 = ss * 3 / 8
     var g9 = vc + 0 - dx2
     var g10 = vc + dx2 - 0
@@ -243,20 +161,10 @@ function actionButtonDocument(w, h, l, r, t, b, ) {
     var g15 = g9 + g13 - 0
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}ZM${g11},${g9}L${g14},${g9}L${g12},${g15}L${g12},${g10}L${g11},${g10}Z`, `M${g11},${g9}L${g14},${g9}L${g14},${g15}L${g12},${g15}L${g12},${g10}L${g11},${g10}Z`, `M${g14},${g9}L${g14},${g15}L${g12},${g15}Z`, `M${g11},${g9}L${g14},${g9}L${g12},${g15}L${g12},${g10}L${g11},${g10}ZM${g12},${g15}L${g14},${g15}L${g14},${g9}`, `M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`]
 }
+export function actionButtonEnd(w, h, l, r, t, b, ) {
 
-function actionButtonEnd(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var dx2 = ss * 3 / 8
     var g9 = vc + 0 - dx2
     var g10 = vc + dx2 - 0
@@ -269,20 +177,10 @@ function actionButtonEnd(w, h, l, r, t, b, ) {
     var g17 = g11 + g15 - 0
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}ZM${g16},${vc}L${g11},${g9}L${g11},${g10}ZM${g17},${g9}L${g12},${g9}L${g12},${g10}L${g17},${g10}Z`, `M${g16},${vc}L${g11},${g9}L${g11},${g10}ZM${g17},${g9}L${g12},${g9}L${g12},${g10}L${g17},${g10}Z`, `M${g16},${vc}L${g11},${g10}L${g11},${g9}ZM${g17},${g9}L${g12},${g9}L${g12},${g10}L${g17},${g10}Z`, `M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`]
 }
+export function actionButtonForwardNext(w, h, l, r, t, b, ) {
 
-function actionButtonForwardNext(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var dx2 = ss * 3 / 8
     var g9 = vc + 0 - dx2
     var g10 = vc + dx2 - 0
@@ -290,20 +188,10 @@ function actionButtonForwardNext(w, h, l, r, t, b, ) {
     var g12 = hc + dx2 - 0
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}ZM${g12},${vc}L${g11},${g9}L${g11},${g10}Z`, `M${g12},${vc}L${g11},${g9}L${g11},${g10}Z`, `M${g12},${vc}L${g11},${g10}L${g11},${g9}Z`, `M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`]
 }
+export function actionButtonHelp(w, h, l, r, t, b, ) {
 
-function actionButtonHelp(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var dx2 = ss * 3 / 8
     var g9 = vc + 0 - dx2
     var g11 = hc + 0 - dx2
@@ -327,20 +215,10 @@ function actionButtonHelp(w, h, l, r, t, b, ) {
     var g42 = g13 * 3 / 28
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}ZM${g33},${g27}L${g37},${g30}L${g36},${g30}L${g36},${g29}ZM${hc},${g31}Z`, `M${g33},${g27}L${g37},${g30}L${g36},${g30}L${g36},${g29}ZM${hc},${g31}Z`, `M${g33},${g27}L${g37},${g30}L${g36},${g30}L${g36},${g29}ZM${hc},${g31}Z`, `M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`]
 }
+export function actionButtonHome(w, h, l, r, t, b, ) {
 
-function actionButtonHome(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var dx2 = ss * 3 / 8
     var g9 = vc + 0 - dx2
     var g10 = vc + dx2 - 0
@@ -369,20 +247,10 @@ function actionButtonHome(w, h, l, r, t, b, ) {
     var g33 = g11 + g23 - 0
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}ZM${hc},${g9}L${g11},${vc}L${g28},${vc}L${g28},${g10}L${g33},${g10}L${g33},${vc}L${g12},${vc}L${g32},${g26}L${g32},${g24}L${g31},${g24}L${g31},${g25}Z`, `M${g32},${g26}L${g32},${g24}L${g31},${g24}L${g31},${g25}ZM${g28},${vc}L${g28},${g10}L${g29},${g10}L${g29},${g27}L${g30},${g27}L${g30},${g10}L${g33},${g10}L${g33},${vc}Z`, `M${hc},${g9}L${g11},${vc}L${g12},${vc}ZM${g29},${g27}L${g30},${g27}L${g30},${g10}L${g29},${g10}Z`, `M${hc},${g9}L${g31},${g25}L${g31},${g24}L${g32},${g24}L${g32},${g26}L${g12},${vc}L${g33},${vc}L${g33},${g10}L${g28},${g10}L${g28},${vc}L${g11},${vc}ZM${g31},${g25}L${g32},${g26}M${g33},${vc}L${g28},${vc}M${g29},${g10}L${g29},${g27}L${g30},${g27}L${g30},${g10}`, `M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`]
 }
+export function actionButtonInformation(w, h, l, r, t, b, ) {
 
-function actionButtonInformation(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var dx2 = ss * 3 / 8
     var g9 = vc + 0 - dx2
     var g11 = hc + 0 - dx2
@@ -407,20 +275,10 @@ function actionButtonInformation(w, h, l, r, t, b, ) {
     var g38 = g13 * 3 / 32
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}ZM${hc},${g9}Z`, `M${hc},${g9}ZM${hc},${g25}M${g32},${g28}L${g32},${g29}L${g34},${g29}L${g34},${g30}L${g32},${g30}L${g32},${g31}L${g37},${g31}L${g37},${g30}L${g35},${g30}L${g35},${g28}Z`, `M${hc},${g25}M${g32},${g28}L${g35},${g28}L${g35},${g30}L${g37},${g30}L${g37},${g31}L${g32},${g31}L${g32},${g30}L${g34},${g30}L${g34},${g29}L${g32},${g29}Z`, `M${hc},${g9}ZM${hc},${g25}M${g32},${g28}L${g35},${g28}L${g35},${g30}L${g37},${g30}L${g37},${g31}L${g32},${g31}L${g32},${g30}L${g34},${g30}L${g34},${g29}L${g32},${g29}Z`, `M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`]
 }
+export function actionButtonMovie(w, h, l, r, t, b, ) {
 
-function actionButtonMovie(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var dx2 = ss * 3 / 8
     var g9 = vc + 0 - dx2
     var g10 = vc + dx2 - 0
@@ -464,20 +322,10 @@ function actionButtonMovie(w, h, l, r, t, b, ) {
     var g48 = g9 + g31 - 0
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}ZM${g11},${g39}L${g11},${g44}L${g31},${g44}L${g32},${g43}L${g33},${g43}L${g33},${g47}L${g35},${g47}L${g35},${g45}L${g36},${g45}L${g38},${g46}L${g12},${g46}L${g12},${g41}L${g38},${g41}L${g37},${g42}L${g35},${g42}L${g35},${g41}L${g34},${g40}L${g32},${g40}L${g31},${g39}Z`, `M${g11},${g39}L${g11},${g44}L${g31},${g44}L${g32},${g43}L${g33},${g43}L${g33},${g47}L${g35},${g47}L${g35},${g45}L${g36},${g45}L${g38},${g46}L${g12},${g46}L${g12},${g41}L${g38},${g41}L${g37},${g42}L${g35},${g42}L${g35},${g41}L${g34},${g40}L${g32},${g40}L${g31},${g39}Z`, `M${g11},${g39}L${g31},${g39}L${g32},${g40}L${g34},${g40}L${g35},${g41}L${g35},${g42}L${g37},${g42}L${g38},${g41}L${g12},${g41}L${g12},${g46}L${g38},${g46}L${g36},${g45}L${g35},${g45}L${g35},${g47}L${g33},${g47}L${g33},${g43}L${g32},${g43}L${g31},${g44}L${g11},${g44}Z`, `M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`]
 }
+export function actionButtonReturn(w, h, l, r, t, b, ) {
 
-function actionButtonReturn(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var dx2 = ss * 3 / 8
     var g9 = vc + 0 - dx2
     var g10 = vc + dx2 - 0
@@ -500,20 +348,10 @@ function actionButtonReturn(w, h, l, r, t, b, ) {
     var g27 = g13 * 1 / 8
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}ZM${g12},${g21}L${g23},${g9}L${hc},${g21}L${g24},${g21}L${g24},${g20}L${g25},${g19}L${g26},${g21}L${g11},${g21}L${g11},${g20}L${hc},${g10}L${g22},${g21}Z`, `M${g12},${g21}L${g23},${g9}L${hc},${g21}L${g24},${g21}L${g24},${g20}L${g25},${g19}L${g26},${g21}L${g11},${g21}L${g11},${g20}L${hc},${g10}L${g22},${g21}Z`, `M${g12},${g21}L${g22},${g21}L${g22},${g20}L${g25},${g10}L${g11},${g21}L${g26},${g21}L${g26},${g20}L${hc},${g19}L${g24},${g21}L${hc},${g21}L${g23},${g9}Z`, `M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`]
 }
+export function actionButtonSound(w, h, l, r, t, b, ) {
 
-function actionButtonSound(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var dx2 = ss * 3 / 8
     var g9 = vc + 0 - dx2
     var g10 = vc + dx2 - 0
@@ -535,22 +373,12 @@ function actionButtonSound(w, h, l, r, t, b, ) {
     var g26 = g11 + g18 - 0
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}ZM${g11},${g21}L${g11},${g22}L${g24},${g22}L${g25},${g10}L${g25},${g9}L${g24},${g21}Z`, `M${g11},${g21}L${g11},${g22}L${g24},${g22}L${g25},${g10}L${g25},${g9}L${g24},${g21}Z`, `M${g11},${g21}L${g24},${g21}L${g25},${g9}L${g25},${g10}L${g24},${g22}L${g11},${g22}ZM${g26},${g21}L${g12},${g20}M${g26},${vc}L${g12},${vc}M${g26},${g22}L${g12},${g23}`, `M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`]
 }
-
-function arc(w, h, l, r, t, b, adj1, adj2) {
+export function arc(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 16200000
     adj2 = adj2 || 0
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var stAng = adj1 < 0 ? 0 : (adj1 > 21599999 ? 21599999 : adj1)
     var enAng = adj2 < 0 ? 0 : (adj2 > 21599999 ? 21599999 : adj2)
     var sw11 = enAng + 0 - stAng
@@ -595,24 +423,14 @@ function arc(w, h, l, r, t, b, adj1, adj2) {
     var cang3 = cang1 + cang2 / 2
     return [`M${x1},${y1}L${hc},${vc}Z`, `M${x1},${y1}`]
 }
-
-function bentArrow(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
+export function bentArrow(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
     adj1 = adj1 || 25000
     adj2 = adj2 || 25000
     adj3 = adj3 || 25000
     adj4 = adj4 || 43750
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a2 = adj2 < 0 ? 0 : (adj2 > 50000 ? 50000 : adj2)
     var maxAdj1 = a2 * 2 / 1
     var a1 = adj1 < 0 ? 0 : (adj1 > maxAdj1 ? maxAdj1 : adj1)
@@ -638,69 +456,38 @@ function bentArrow(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
     var y6 = y3 + bd2 - 0
     return [`M${l},${b}L${l},${y5}L${x4},${dh2}L${x4},${t}L${r},${aw2}L${x4},${y4}L${x4},${y3}L${x3},${y3}L${th},${b}Z`]
 }
-
-function bentConnector2(w, h, l, r, t, b, ) {
+export function bentConnector2(w, h, l, r, t, b, ) {
 
     // no guides
     return [`M${l},${t}L${r},${t}L${r},${b}`]
 }
-
-function bentConnector3(w, h, l, r, t, b, adj1) {
+export function bentConnector3(w, h, l, r, t, b, adj1) {
     adj1 = adj1 || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x1 = w * adj1 / 100000
     return [`M${l},${t}L${x1},${t}L${x1},${b}L${r},${b}`]
 }
-
-function bentConnector4(w, h, l, r, t, b, adj1, adj2) {
+export function bentConnector4(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 50000
     adj2 = adj2 || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x1 = w * adj1 / 100000
     var x2 = x1 + r / 2
     var y2 = h * adj2 / 100000
     var y1 = t + y2 / 2
     return [`M${l},${t}L${x1},${t}L${x1},${y2}L${r},${y2}L${r},${b}`]
 }
-
-function bentConnector5(w, h, l, r, t, b, adj1, adj2, adj3) {
+export function bentConnector5(w, h, l, r, t, b, adj1, adj2, adj3) {
     adj1 = adj1 || 50000
     adj2 = adj2 || 50000
     adj3 = adj3 || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x1 = w * adj1 / 100000
     var x3 = w * adj3 / 100000
     var x2 = x1 + x3 / 2
@@ -709,23 +496,13 @@ function bentConnector5(w, h, l, r, t, b, adj1, adj2, adj3) {
     var y3 = b + y2 / 2
     return [`M${l},${t}L${x1},${t}L${x1},${y2}L${x3},${y2}L${x3},${b}L${r},${b}`]
 }
-
-function bentUpArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
+export function bentUpArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
     adj1 = adj1 || 25000
     adj2 = adj2 || 25000
     adj3 = adj3 || 25000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 50000 ? 50000 : adj1)
     var a2 = adj2 < 0 ? 0 : (adj2 > 50000 ? 50000 : adj2)
     var a3 = adj3 < 0 ? 0 : (adj3 > 50000 ? 50000 : adj3)
@@ -744,44 +521,24 @@ function bentUpArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
     var y15 = y1 + b / 2
     return [`M${l},${y2}L${x2},${y2}L${x2},${y1}L${x1},${y1}L${x3},${t}L${r},${y1}L${x4},${y1}L${x4},${b}L${l},${b}Z`]
 }
-
-function bevel(w, h, l, r, t, b, adj) {
+export function bevel(w, h, l, r, t, b, adj) {
     adj = adj || 12500
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var x1 = ss * a / 100000
     var x2 = r + 0 - x1
     var y2 = b + 0 - x1
     return [`M${x1},${x1}L${x2},${x1}L${x2},${y2}L${x1},${y2}Z`, `M${l},${t}L${r},${t}L${x2},${x1}L${x1},${x1}Z`, `M${l},${b}L${x1},${y2}L${x2},${y2}L${r},${b}Z`, `M${l},${t}L${x1},${x1}L${x1},${y2}L${l},${b}Z`, `M${r},${t}L${r},${b}L${x2},${y2}L${x2},${x1}Z`, `M${l},${t}L${r},${t}L${r},${b}L${l},${b}ZM${x1},${x1}L${x2},${x1}L${x2},${y2}L${x1},${y2}ZM${l},${t}L${x1},${x1}M${l},${b}L${x1},${y2}M${r},${t}L${x2},${x1}M${r},${b}L${x2},${y2}`]
 }
-
-function blockArc(w, h, l, r, t, b, adj1, adj2, adj3) {
+export function blockArc(w, h, l, r, t, b, adj1, adj2, adj3) {
     adj1 = adj1 || 10800000
     adj2 = adj2 || 0
     adj3 = adj3 || 25000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var stAng = adj1 < 0 ? 0 : (adj1 > 21599999 ? 21599999 : adj1)
     var istAng = adj2 < 0 ? 0 : (adj2 > 21599999 ? 21599999 : adj2)
     var a3 = adj3 < 0 ? 0 : (adj3 > 50000 ? 50000 : adj3)
@@ -855,32 +612,21 @@ function blockArc(w, h, l, r, t, b, adj1, adj2, adj3) {
     var cang3 = cang1 + cang2 / 2
     return [`M${x1},${y1}L${x2},${y2}Z`]
 }
-
-function borderCallout1(w, h, l, r, t, b, adj2, adj1, adj4, adj3) {
+export function borderCallout1(w, h, l, r, t, b, adj2, adj1, adj4, adj3) {
     adj1 = adj1 || 18750
     adj2 = adj2 || -8333
     adj3 = adj3 || 112500
     adj4 = adj4 || -38333
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var y1 = h * adj1 / 100000
     var x1 = w * adj2 / 100000
     var y2 = h * adj3 / 100000
     var x2 = w * adj4 / 100000
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`, `M${x1},${y1}L${x2},${y2}`]
 }
-
-function borderCallout2(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5) {
+export function borderCallout2(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5) {
     adj1 = adj1 || 18750
     adj2 = adj2 || -8333
     adj3 = adj3 || 18750
@@ -889,16 +635,7 @@ function borderCallout2(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5) {
     adj6 = adj6 || -46667
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var y1 = h * adj1 / 100000
     var x1 = w * adj2 / 100000
     var y2 = h * adj3 / 100000
@@ -907,8 +644,7 @@ function borderCallout2(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5) {
     var x3 = w * adj6 / 100000
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`, `M${x1},${y1}L${x2},${y2}L${x3},${y3}`]
 }
-
-function borderCallout3(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5, adj8, adj7) {
+export function borderCallout3(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5, adj8, adj7) {
     adj1 = adj1 || 18750
     adj2 = adj2 || -8333
     adj3 = adj3 || 18750
@@ -919,16 +655,7 @@ function borderCallout3(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5, ad
     adj8 = adj8 || -8333
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var y1 = h * adj1 / 100000
     var x1 = w * adj2 / 100000
     var y2 = h * adj3 / 100000
@@ -939,21 +666,11 @@ function borderCallout3(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5, ad
     var x4 = w * adj8 / 100000
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`, `M${x1},${y1}L${x2},${y2}L${x3},${y3}L${x4},${y4}`]
 }
-
-function bracePair(w, h, l, r, t, b, adj) {
+export function bracePair(w, h, l, r, t, b, adj) {
     adj = adj || 8333
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 25000 ? 25000 : adj)
     var x1 = ss * a / 100000
     var x2 = ss * a / 50000
@@ -968,21 +685,11 @@ function bracePair(w, h, l, r, t, b, adj) {
     var ib = b + 0 - it
     return [`M${x2},${b}L${x1},${y3}L${x1},${x1}L${x3},${t}L${x4},${y2}L${x4},${y4}Z`, `M${x2},${b}L${x1},${y3}L${x1},${x1}M${x3},${t}L${x4},${y2}L${x4},${y4}`]
 }
-
-function bracketPair(w, h, l, r, t, b, adj) {
+export function bracketPair(w, h, l, r, t, b, adj) {
     adj = adj || 16667
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var x1 = ss * a / 100000
     var x2 = r + 0 - x1
@@ -992,32 +699,21 @@ function bracketPair(w, h, l, r, t, b, adj) {
     var ib = b + 0 - il
     return [`M${l},${x1}L${x2},${t}L${r},${y2}L${x1},${b}Z`, `M${x1},${b}L${l},${x1}M${x2},${t}L${r},${y2}`]
 }
-
-function callout1(w, h, l, r, t, b, adj2, adj1, adj4, adj3) {
+export function callout1(w, h, l, r, t, b, adj2, adj1, adj4, adj3) {
     adj1 = adj1 || 18750
     adj2 = adj2 || -8333
     adj3 = adj3 || 112500
     adj4 = adj4 || -38333
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var y1 = h * adj1 / 100000
     var x1 = w * adj2 / 100000
     var y2 = h * adj3 / 100000
     var x2 = w * adj4 / 100000
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`, `M${x1},${y1}L${x2},${y2}`]
 }
-
-function callout2(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5) {
+export function callout2(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5) {
     adj1 = adj1 || 18750
     adj2 = adj2 || -8333
     adj3 = adj3 || 18750
@@ -1026,16 +722,7 @@ function callout2(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5) {
     adj6 = adj6 || -46667
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var y1 = h * adj1 / 100000
     var x1 = w * adj2 / 100000
     var y2 = h * adj3 / 100000
@@ -1044,8 +731,7 @@ function callout2(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5) {
     var x3 = w * adj6 / 100000
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`, `M${x1},${y1}L${x2},${y2}L${x3},${y3}`]
 }
-
-function callout3(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5, adj8, adj7) {
+export function callout3(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5, adj8, adj7) {
     adj1 = adj1 || 18750
     adj2 = adj2 || -8333
     adj3 = adj3 || 18750
@@ -1056,16 +742,7 @@ function callout3(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5, adj8, ad
     adj8 = adj8 || -8333
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var y1 = h * adj1 / 100000
     var x1 = w * adj2 / 100000
     var y2 = h * adj3 / 100000
@@ -1076,21 +753,11 @@ function callout3(w, h, l, r, t, b, adj2, adj1, adj4, adj3, adj6, adj5, adj8, ad
     var x4 = w * adj8 / 100000
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`, `M${x1},${y1}L${x2},${y2}L${x3},${y3}L${x4},${y4}`]
 }
-
-function can(w, h, l, r, t, b, adj) {
+export function can(w, h, l, r, t, b, adj) {
     adj = adj || 25000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj = 50000 * h / ss
     var a = adj < 0 ? 0 : (adj > maxAdj ? maxAdj : adj)
     var y1 = ss * a / 200000
@@ -1098,39 +765,26 @@ function can(w, h, l, r, t, b, adj) {
     var y3 = b + 0 - y1
     return [`M${l},${y1}L${r},${y3}Z`, `M${l},${y1}Z`, `M${r},${y1}L${r},${y3}L${l},${y1}`]
 }
-
-function chartPlus(w, h, l, r, t, b, ) {
+export function chartPlus(w, h, l, r, t, b, ) {
 
     // no guides
     return [`M${5},${0}L${5},${10}M${0},${5}L${10},${5}`, `M${0},${0}L${0},${10}L${10},${10}L${10},${0}Z`]
 }
-
-function chartStar(w, h, l, r, t, b, ) {
+export function chartStar(w, h, l, r, t, b, ) {
 
     // no guides
     return [`M${0},${0}L${10},${10}M${0},${10}L${10},${0}M${5},${0}L${5},${10}`, `M${0},${0}L${0},${10}L${10},${10}L${10},${0}Z`]
 }
-
-function chartX(w, h, l, r, t, b, ) {
+export function chartX(w, h, l, r, t, b, ) {
 
     // no guides
     return [`M${0},${0}L${10},${10}M${0},${10}L${10},${0}`, `M${0},${0}L${0},${10}L${10},${10}L${10},${0}Z`]
 }
-
-function chevron(w, h, l, r, t, b, adj) {
+export function chevron(w, h, l, r, t, b, adj) {
     adj = adj || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj = 100000 * w / ss
     var a = adj < 0 ? 0 : (adj > maxAdj ? maxAdj : adj)
     var x1 = ss * a / 100000
@@ -1141,22 +795,12 @@ function chevron(w, h, l, r, t, b, adj) {
     var ir = dx > 0 ? x2 : r
     return [`M${l},${t}L${x2},${t}L${r},${vc}L${x2},${b}L${l},${b}L${x1},${vc}Z`]
 }
-
-function chord(w, h, l, r, t, b, adj1, adj2) {
+export function chord(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 2700000
     adj2 = adj2 || 16200000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var stAng = adj1 < 0 ? 0 : (adj1 > 21599999 ? 21599999 : adj1)
     var enAng = adj2 < 0 ? 0 : (adj2 > 21599999 ? 21599999 : adj2)
     var sw1 = enAng + 0 - stAng
@@ -1186,8 +830,7 @@ function chord(w, h, l, r, t, b, adj1, adj2) {
     var ib = vc + idy - 0
     return [`M${x1},${y1}Z`]
 }
-
-function circularArrow(w, h, l, r, t, b, adj2, adj4, adj3, adj1, adj5) {
+export function circularArrow(w, h, l, r, t, b, adj2, adj4, adj3, adj1, adj5) {
     adj1 = adj1 || 12500
     adj2 = adj2 || 1142319
     adj3 = adj3 || 20457681
@@ -1195,16 +838,7 @@ function circularArrow(w, h, l, r, t, b, adj2, adj4, adj3, adj1, adj5) {
     adj5 = adj5 || 12500
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a5 = adj5 < 0 ? 0 : (adj5 > 25000 ? 25000 : adj5)
     var maxAdj1 = a5 * 2 / 1
     var a1 = adj1 < 0 ? 0 : (adj1 > maxAdj1 ? maxAdj1 : adj1)
@@ -1399,20 +1033,10 @@ function circularArrow(w, h, l, r, t, b, adj2, adj4, adj3, adj1, adj5) {
     var ib = vc + idy - 0
     return [`M${xE},${yE}L${xGp},${yGp}L${xA},${yA}L${xBp},${yBp}L${xC},${yC}Z`]
 }
+export function cloud(w, h, l, r, t, b, ) {
 
-function cloud(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var il = w * 2977 / 21600
     var it = h * 3262 / 21600
     var ir = w * 17087 / 21600
@@ -1423,22 +1047,12 @@ function cloud(w, h, l, r, t, b, ) {
     var g30 = h * 1235 / 21600
     return [`M${3900},${14370}Z`, `M${4693},${26177}M${6928},${34899}M${16478},${39090}M${28827},${34751}M${34129},${22954}M${41798},${15354}M${38324},${5426}M${29078},${3952}M${22141},${4720}M${14000},${5192}M${4127},${15789}`]
 }
-
-function cloudCallout(w, h, l, r, t, b, adj1, adj2) {
+export function cloudCallout(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || -20833
     adj2 = adj2 || 62500
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var dxPos = w * adj1 / 100000
     var dyPos = h * adj2 / 100000
     var xPos = hc + dxPos - 0
@@ -1484,22 +1098,12 @@ function cloudCallout(w, h, l, r, t, b, adj1, adj2) {
     var pang = atan2(dxPos, dyPos)
     return [`M${3900},${14370}Z`, `M${x23},${yPos}Z`, `M${x24},${g17}Z`, `M${x25},${g24}Z`, `M${4693},${26177}M${6928},${34899}M${16478},${39090}M${28827},${34751}M${34129},${22954}M${41798},${15354}M${38324},${5426}M${29078},${3952}M${22141},${4720}M${14000},${5192}M${4127},${15789}`]
 }
-
-function corner(w, h, l, r, t, b, adj1, adj2) {
+export function corner(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 50000
     adj2 = adj2 || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj1 = 100000 * h / ss
     var maxAdj2 = 100000 * w / ss
     var a1 = adj1 < 0 ? 0 : (adj1 > maxAdj1 ? maxAdj1 : adj1)
@@ -1514,41 +1118,21 @@ function corner(w, h, l, r, t, b, adj1, adj2) {
     var ir = d > 0 ? r : x1
     return [`M${l},${t}L${x1},${t}L${x1},${y1}L${r},${y1}L${r},${b}L${l},${b}Z`]
 }
+export function cornerTabs(w, h, l, r, t, b, ) {
 
-function cornerTabs(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var md = sqrt(w * w + h * h + 0 * 0)
     var dx = 1 * md / 20
     var y1 = 0 + b - dx
     var x1 = 0 + r - dx
     return [`M${l},${t}L${dx},${t}L${l},${dx}Z`, `M${l},${y1}L${dx},${b}L${l},${b}Z`, `M${x1},${t}L${r},${t}L${r},${dx}Z`, `M${r},${y1}L${r},${b}L${x1},${b}Z`]
 }
-
-function cube(w, h, l, r, t, b, adj) {
+export function cube(w, h, l, r, t, b, adj) {
     adj = adj || 25000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 100000 ? 100000 : adj)
     var y1 = ss * a / 100000
     var y4 = b + 0 - y1
@@ -1559,49 +1143,28 @@ function cube(w, h, l, r, t, b, adj) {
     var x3 = y1 + r / 2
     return [`M${l},${y1}L${x4},${y1}L${x4},${b}L${l},${b}Z`, `M${x4},${y1}L${r},${t}L${r},${y4}L${x4},${b}Z`, `M${l},${y1}L${y1},${t}L${r},${t}L${x4},${y1}Z`, `M${l},${y1}L${y1},${t}L${r},${t}L${r},${y4}L${x4},${b}L${l},${b}ZM${l},${y1}L${x4},${y1}L${r},${t}M${x4},${y1}L${x4},${b}`]
 }
-
-function curvedConnector2(w, h, l, r, t, b, ) {
+export function curvedConnector2(w, h, l, r, t, b, ) {
 
     // no guides
     return [`M${l},${t}Z`]
 }
-
-function curvedConnector3(w, h, l, r, t, b, adj1) {
+export function curvedConnector3(w, h, l, r, t, b, adj1) {
     adj1 = adj1 || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x2 = w * adj1 / 100000
     var x1 = l + x2 / 2
     var x3 = r + x2 / 2
     var y3 = h * 3 / 4
     return [`M${l},${t}ZZ`]
 }
-
-function curvedConnector4(w, h, l, r, t, b, adj1, adj2) {
+export function curvedConnector4(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 50000
     adj2 = adj2 || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x2 = w * adj1 / 100000
     var x1 = l + x2 / 2
     var x3 = r + x2 / 2
@@ -1614,23 +1177,13 @@ function curvedConnector4(w, h, l, r, t, b, adj1, adj2) {
     var y5 = b + y4 / 2
     return [`M${l},${t}ZZZ`]
 }
-
-function curvedConnector5(w, h, l, r, t, b, adj1, adj2, adj3) {
+export function curvedConnector5(w, h, l, r, t, b, adj1, adj2, adj3) {
     adj1 = adj1 || 50000
     adj2 = adj2 || 50000
     adj3 = adj3 || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x3 = w * adj1 / 100000
     var x6 = w * adj3 / 100000
     var x1 = x3 + x6 / 2
@@ -1647,23 +1200,13 @@ function curvedConnector5(w, h, l, r, t, b, adj1, adj2, adj3) {
     var y7 = y5 + b / 2
     return [`M${l},${t}ZZZZ`]
 }
-
-function curvedDownArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
+export function curvedDownArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
     adj1 = adj1 || 25000
     adj2 = adj2 || 50000
     adj3 = adj3 || 25000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj2 = 50000 * w / ss
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
     var a1 = adj1 < 0 ? 0 : (adj1 > 100000 ? 100000 : adj1)
@@ -1707,23 +1250,13 @@ function curvedDownArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
     var swAng3 = cd4 + dang2 - 0
     return [`M${x6},${b}L${x4},${y1}L${x5},${y1}L${x3},${t}L${x8},${y1}Z`, `M${ix},${iy}L${l},${b}Z`, `M${ix},${iy}L${l},${b}L${x3},${t}L${x8},${y1}L${x6},${b}L${x4},${y1}L${x5},${y1}`]
 }
-
-function curvedLeftArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
+export function curvedLeftArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
     adj1 = adj1 || 25000
     adj2 = adj2 || 50000
     adj3 = adj3 || 25000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj2 = 50000 * h / ss
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
     var a1 = adj1 < 0 ? 0 : (adj1 > a2 ? a2 : adj1)
@@ -1766,23 +1299,13 @@ function curvedLeftArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
     var stAng3 = 0 + 0 - dang2
     return [`M${l},${y6}L${x1},${y4}L${x1},${y5}L${x1},${y8}Z`, `M${r},${y3}L${l},${t}Z`, `M${r},${y3}L${l},${t}L${r},${y3}L${x1},${y8}L${l},${y6}L${x1},${y4}L${x1},${y5}`]
 }
-
-function curvedRightArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
+export function curvedRightArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
     adj1 = adj1 || 25000
     adj2 = adj2 || 50000
     adj3 = adj3 || 25000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj2 = 50000 * h / ss
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
     var a1 = adj1 < 0 ? 0 : (adj1 > a2 ? a2 : adj1)
@@ -1826,23 +1349,13 @@ function curvedRightArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
     var stAng3 = cd2 + 0 - dang2
     return [`M${l},${hR}L${x1},${y4}L${r},${y6}L${x1},${y8}L${x1},${y7}Z`, `M${r},${th}Z`, `M${l},${hR}L${x1},${y4}L${r},${y6}L${x1},${y8}L${x1},${y7}L${l},${hR}L${r},${th}`]
 }
-
-function curvedUpArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
+export function curvedUpArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
     adj1 = adj1 || 25000
     adj2 = adj2 || 50000
     adj3 = adj3 || 25000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj2 = 50000 * w / ss
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
     var a1 = adj1 < 0 ? 0 : (adj1 > 100000 ? 100000 : adj1)
@@ -1887,21 +1400,11 @@ function curvedUpArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
     var stAng2 = cd4 + 0 - dang2
     return [`M${x6},${t}L${x8},${y1}L${x7},${y1}L${x4},${y1}Z`, `M${wR},${b}L${th},${t}Z`, `M${ix},${iy}L${x4},${y1}L${x6},${t}L${x8},${y1}L${x7},${y1}L${wR},${b}L${th},${t}`]
 }
-
-function decagon(w, h, l, r, t, b, ) {
+export function decagon(w, h, l, r, t, b, ) {
     vf = vf || 105146
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var shd2 = hd2 * vf / 100000
     var dx1 = max(wd2, 2160000)
     var dx2 = max(wd2, 4320000)
@@ -1917,21 +1420,11 @@ function decagon(w, h, l, r, t, b, ) {
     var y4 = vc + dy1 - 0
     return [`M${l},${vc}L${x1},${y2}L${x2},${y1}L${x3},${y1}L${x4},${y2}L${r},${vc}L${x4},${y3}L${x3},${y4}L${x2},${y4}L${x1},${y3}Z`]
 }
-
-function diagStripe(w, h, l, r, t, b, adj) {
+export function diagStripe(w, h, l, r, t, b, adj) {
     adj = adj || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 100000 ? 100000 : adj)
     var x2 = w * a / 100000
     var x1 = x2 * 1 / 2
@@ -1941,38 +1434,18 @@ function diagStripe(w, h, l, r, t, b, adj) {
     var y3 = y2 + b / 2
     return [`M${l},${y2}L${x2},${t}L${r},${t}L${l},${b}Z`]
 }
+export function diamond(w, h, l, r, t, b, ) {
 
-function diamond(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var ir = w * 3 / 4
     var ib = h * 3 / 4
     return [`M${l},${vc}L${hc},${t}L${r},${vc}L${hc},${b}Z`]
 }
+export function dodecagon(w, h, l, r, t, b, ) {
 
-function dodecagon(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x1 = w * 2894 / 21600
     var x2 = w * 7906 / 21600
     var x3 = w * 13694 / 21600
@@ -1983,21 +1456,11 @@ function dodecagon(w, h, l, r, t, b, ) {
     var y4 = h * 18706 / 21600
     return [`M${l},${y2}L${x1},${y1}L${x2},${t}L${x3},${t}L${x4},${y1}L${r},${y2}L${r},${y3}L${x4},${y4}L${x3},${b}L${x2},${b}L${x1},${y4}L${l},${y3}Z`]
 }
-
-function donut(w, h, l, r, t, b, adj) {
+export function donut(w, h, l, r, t, b, adj) {
     adj = adj || 25000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var dr = ss * a / 100000
     var iwd2 = wd2 + 0 - dr
@@ -2010,22 +1473,12 @@ function donut(w, h, l, r, t, b, adj) {
     var ib = vc + idy - 0
     return [`M${l},${vc}ZM${dr},${vc}Z`]
 }
-
-function doubleWave(w, h, l, r, t, b, adj1, adj2) {
+export function doubleWave(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 6250
     adj2 = adj2 || 0
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 12500 ? 12500 : adj1)
     var a2 = adj2 < -10000 ? -10000 : (adj2 > 10000 ? 10000 : adj2)
     var y1 = h * a1 / 100000
@@ -2064,22 +1517,12 @@ function doubleWave(w, h, l, r, t, b, adj1, adj2) {
     var ib = b + 0 - it
     return [`M${x2},${y1}ZZL${x15},${y4}ZZZ`]
 }
-
-function downArrow(w, h, l, r, t, b, adj1, adj2) {
+export function downArrow(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 50000
     adj2 = adj2 || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj2 = 100000 * h / ss
     var a1 = adj1 < 0 ? 0 : (adj1 > 100000 ? 100000 : adj1)
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
@@ -2092,24 +1535,14 @@ function downArrow(w, h, l, r, t, b, adj1, adj2) {
     var y2 = y1 + dy2 - 0
     return [`M${l},${y1}L${x1},${y1}L${x1},${t}L${x2},${t}L${x2},${y1}L${r},${y1}L${hc},${b}Z`]
 }
-
-function downArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
+export function downArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
     adj1 = adj1 || 25000
     adj2 = adj2 || 25000
     adj3 = adj3 || 25000
     adj4 = adj4 || 64977
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj2 = 50000 * w / ss
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
     var maxAdj1 = a2 * 2 / 1
@@ -2131,20 +1564,10 @@ function downArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
     var y1 = y2 * 1 / 2
     return [`M${l},${t}L${r},${t}L${r},${y2}L${x3},${y2}L${x3},${y3}L${x4},${y3}L${hc},${b}L${x1},${y3}L${x2},${y3}L${x2},${y2}L${l},${y2}Z`]
 }
+export function ellipse(w, h, l, r, t, b, ) {
 
-function ellipse(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var idx = max(wd2, 2700000)
     var idy = hd2 * sin(2700000)
     var il = hc + 0 - idx
@@ -2153,23 +1576,13 @@ function ellipse(w, h, l, r, t, b, ) {
     var ib = vc + idy - 0
     return [`M${l},${vc}Z`]
 }
-
-function ellipseRibbon(w, h, l, r, t, b, adj1, adj2, adj3) {
+export function ellipseRibbon(w, h, l, r, t, b, adj1, adj2, adj3) {
     adj1 = adj1 || 25000
     adj2 = adj2 || 50000
     adj3 = adj3 || 12500
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 100000 ? 100000 : adj1)
     var a2 = adj2 < 25000 ? 25000 : (adj2 > 75000 ? 75000 : adj2)
     var q10 = 100000 + 0 - a1
@@ -2215,23 +1628,13 @@ function ellipseRibbon(w, h, l, r, t, b, adj1, adj2, adj3) {
     var y8 = b + 0 - dy1
     return [`M${l},${t}ZL${x2},${y3}ZL${x4},${y1}ZL${x6},${y2}L${r},${rh}ZL${x5},${y6}ZL${x2},${y5}ZL${wd8},${y2}Z`, `M${x3},${y7}L${x3},${y1}L${x2},${y3}ZL${x4},${y1}L${x4},${y7}ZZ`, `M${l},${t}ZL${x2},${y3}ZL${x4},${y1}ZL${x6},${y2}L${r},${rh}ZL${x5},${y6}ZL${x2},${y5}ZL${wd8},${y2}ZM${x2},${y5}L${x2},${y3}M${x5},${y3}L${x5},${y5}M${x3},${y1}L${x3},${y7}M${x4},${y7}L${x4},${y1}`]
 }
-
-function ellipseRibbon2(w, h, l, r, t, b, adj1, adj2, adj3) {
+export function ellipseRibbon2(w, h, l, r, t, b, adj1, adj2, adj3) {
     adj1 = adj1 || 25000
     adj2 = adj2 || 50000
     adj3 = adj3 || 12500
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 100000 ? 100000 : adj1)
     var a2 = adj2 < 25000 ? 25000 : (adj2 > 75000 ? 75000 : adj2)
     var q10 = 100000 + 0 - a1
@@ -2287,20 +1690,10 @@ function ellipseRibbon2(w, h, l, r, t, b, adj1, adj2, adj3) {
     var cy7 = b + 0 - cu7
     return [`M${l},${b}ZL${x2},${y3}ZL${x4},${y1}ZL${x6},${y2}L${r},${q1}ZL${x5},${y6}ZL${x2},${y5}ZL${wd8},${y2}Z`, `M${x3},${y7}L${x3},${y1}L${x2},${y3}ZL${x4},${y1}L${x4},${y7}ZZ`, `M${l},${b}L${wd8},${y2}L${l},${q1}ZL${x2},${y6}ZL${x5},${y5}ZL${x6},${y2}L${r},${b}ZL${x5},${y3}ZL${x3},${y1}ZZM${x2},${y3}L${x2},${y5}M${x5},${y5}L${x5},${y3}M${x3},${y7}L${x3},${y1}M${x4},${y1}L${x4},${y7}`]
 }
+export function flowChartAlternateProcess(w, h, l, r, t, b, ) {
 
-function flowChartAlternateProcess(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x2 = r + 0 - ssd6
     var y2 = b + 0 - ssd6
     var il = ssd6 * 29289 / 100000
@@ -2308,38 +1701,18 @@ function flowChartAlternateProcess(w, h, l, r, t, b, ) {
     var ib = b + 0 - il
     return [`M${l},${ssd6}L${x2},${t}L${r},${y2}L${ssd6},${b}Z`]
 }
+export function flowChartCollate(w, h, l, r, t, b, ) {
 
-function flowChartCollate(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var ir = w * 3 / 4
     var ib = h * 3 / 4
     return [`M${0},${0}L${2},${0}L${1},${1}L${2},${2}L${0},${2}L${1},${1}Z`]
 }
+export function flowChartConnector(w, h, l, r, t, b, ) {
 
-function flowChartConnector(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var idx = max(wd2, 2700000)
     var idy = hd2 * sin(2700000)
     var il = hc + 0 - idx
@@ -2348,38 +1721,18 @@ function flowChartConnector(w, h, l, r, t, b, ) {
     var ib = vc + idy - 0
     return [`M${l},${vc}Z`]
 }
+export function flowChartDecision(w, h, l, r, t, b, ) {
 
-function flowChartDecision(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var ir = w * 3 / 4
     var ib = h * 3 / 4
     return [`M${0},${1}L${1},${0}L${2},${1}L${1},${2}Z`]
 }
+export function flowChartDelay(w, h, l, r, t, b, ) {
 
-function flowChartDelay(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var idx = max(wd2, 2700000)
     var idy = hd2 * sin(2700000)
     var ir = hc + idx - 0
@@ -2387,132 +1740,61 @@ function flowChartDelay(w, h, l, r, t, b, ) {
     var ib = vc + idy - 0
     return [`M${l},${t}L${hc},${t}L${l},${b}Z`]
 }
+export function flowChartDisplay(w, h, l, r, t, b, ) {
 
-function flowChartDisplay(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x2 = w * 5 / 6
     return [`M${0},${3}L${1},${0}L${5},${0}L${1},${6}Z`]
 }
+export function flowChartDocument(w, h, l, r, t, b, ) {
 
-function flowChartDocument(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var y1 = h * 17322 / 21600
     var y2 = h * 20172 / 21600
     return [`M${0},${0}L${21600},${0}L${21600},${17322}ZZ`]
 }
+export function flowChartExtract(w, h, l, r, t, b, ) {
 
-function flowChartExtract(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x2 = w * 3 / 4
     return [`M${0},${2}L${1},${0}L${2},${2}Z`]
 }
+export function flowChartInputOutput(w, h, l, r, t, b, ) {
 
-function flowChartInputOutput(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x3 = w * 2 / 5
     var x4 = w * 3 / 5
     var x5 = w * 4 / 5
     var x6 = w * 9 / 10
     return [`M${0},${5}L${1},${0}L${5},${0}L${4},${5}Z`]
 }
-
-function flowChartInternalStorage(w, h, l, r, t, b, ) {
+export function flowChartInternalStorage(w, h, l, r, t, b, ) {
 
     // no guides
     return [`M${0},${0}L${1},${0}L${1},${1}L${0},${1}Z`, `M${1},${0}L${1},${8}M${0},${1}L${8},${1}`, `M${0},${0}L${1},${0}L${1},${1}L${0},${1}Z`]
 }
+export function flowChartMagneticDisk(w, h, l, r, t, b, ) {
 
-function flowChartMagneticDisk(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var y3 = h * 5 / 6
     return [`M${0},${1}L${6},${5}Z`, `M${6},${1}`, `M${0},${1}L${6},${5}Z`]
 }
+export function flowChartMagneticDrum(w, h, l, r, t, b, ) {
 
-function flowChartMagneticDrum(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x2 = w * 2 / 3
     return [`M${1},${0}L${5},${0}L${1},${6}Z`, `M${5},${6}`, `M${1},${0}L${5},${0}L${1},${6}Z`]
 }
+export function flowChartMagneticTape(w, h, l, r, t, b, ) {
 
-function flowChartMagneticTape(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var idx = max(wd2, 2700000)
     var idy = hd2 * sin(2700000)
     var il = hc + 0 - idx
@@ -2522,61 +1804,30 @@ function flowChartMagneticTape(w, h, l, r, t, b, ) {
     var ang1 = atan2(w, h)
     return [`M${hc},${b}L${r},${ib}L${r},${b}Z`]
 }
-
-function flowChartManualInput(w, h, l, r, t, b, ) {
+export function flowChartManualInput(w, h, l, r, t, b, ) {
 
     // no guides
     return [`M${0},${1}L${5},${0}L${5},${5}L${0},${5}Z`]
 }
+export function flowChartManualOperation(w, h, l, r, t, b, ) {
 
-function flowChartManualOperation(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x3 = w * 4 / 5
     var x4 = w * 9 / 10
     return [`M${0},${0}L${5},${0}L${4},${5}L${1},${5}Z`]
 }
+export function flowChartMerge(w, h, l, r, t, b, ) {
 
-function flowChartMerge(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x2 = w * 3 / 4
     return [`M${0},${0}L${2},${0}L${1},${2}Z`]
 }
+export function flowChartMultidocument(w, h, l, r, t, b, ) {
 
-function flowChartMultidocument(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var y2 = h * 3675 / 21600
     var y8 = h * 20782 / 21600
     var x3 = w * 9298 / 21600
@@ -2584,71 +1835,31 @@ function flowChartMultidocument(w, h, l, r, t, b, ) {
     var x5 = w * 18595 / 21600
     return [`M${0},${20782}ZL${18595},${3675}L${0},${3675}ZM${1532},${3675}L${1532},${1815}L${20000},${1815}L${20000},${16252}ZL${18595},${3675}ZM${2972},${1815}L${2972},${0}L${21600},${0}L${21600},${14392}ZL${20000},${1815}Z`, `M${0},${3675}L${18595},${3675}L${18595},${18022}ZZM${1532},${3675}L${1532},${1815}L${20000},${1815}L${20000},${16252}ZM${2972},${1815}L${2972},${0}L${21600},${0}L${21600},${14392}Z`, `M${0},${20782}ZL${18595},${16352}ZL${20000},${14467}ZL${21600},${0}L${2972},${0}L${2972},${1815}L${1532},${1815}L${1532},${3675}L${0},${3675}Z`]
 }
+export function flowChartOfflineStorage(w, h, l, r, t, b, ) {
 
-function flowChartOfflineStorage(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x4 = w * 3 / 4
     return [`M${0},${0}L${2},${0}L${1},${2}Z`, `M${2},${4}L${3},${4}`, `M${0},${0}L${2},${0}L${1},${2}Z`]
 }
+export function flowChartOffpageConnector(w, h, l, r, t, b, ) {
 
-function flowChartOffpageConnector(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var y1 = h * 4 / 5
     return [`M${0},${0}L${10},${0}L${10},${8}L${5},${10}L${0},${8}Z`]
 }
+export function flowChartOnlineStorage(w, h, l, r, t, b, ) {
 
-function flowChartOnlineStorage(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x2 = w * 5 / 6
     return [`M${1},${0}L${6},${0}L${1},${6}Z`]
 }
+export function flowChartOr(w, h, l, r, t, b, ) {
 
-function flowChartOr(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var idx = max(wd2, 2700000)
     var idy = hd2 * sin(2700000)
     var il = hc + 0 - idx
@@ -2657,102 +1868,50 @@ function flowChartOr(w, h, l, r, t, b, ) {
     var ib = vc + idy - 0
     return [`M${l},${vc}Z`, `M${hc},${t}L${hc},${b}M${l},${vc}L${r},${vc}`, `M${l},${vc}Z`]
 }
+export function flowChartPredefinedProcess(w, h, l, r, t, b, ) {
 
-function flowChartPredefinedProcess(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x2 = w * 7 / 8
     return [`M${0},${0}L${1},${0}L${1},${1}L${0},${1}Z`, `M${1},${0}L${1},${8}M${7},${0}L${7},${8}`, `M${0},${0}L${1},${0}L${1},${1}L${0},${1}Z`]
 }
+export function flowChartPreparation(w, h, l, r, t, b, ) {
 
-function flowChartPreparation(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x2 = w * 4 / 5
     return [`M${0},${5}L${2},${0}L${8},${0}L${10},${5}L${8},${10}L${2},${10}Z`]
 }
-
-function flowChartProcess(w, h, l, r, t, b, ) {
+export function flowChartProcess(w, h, l, r, t, b, ) {
 
     // no guides
     return [`M${0},${0}L${1},${0}L${1},${1}L${0},${1}Z`]
 }
-
-function flowChartPunchedCard(w, h, l, r, t, b, ) {
+export function flowChartPunchedCard(w, h, l, r, t, b, ) {
 
     // no guides
     return [`M${0},${1}L${1},${0}L${5},${0}L${5},${5}L${0},${5}Z`]
 }
+export function flowChartPunchedTape(w, h, l, r, t, b, ) {
 
-function flowChartPunchedTape(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var y2 = h * 9 / 10
     var ib = h * 4 / 5
     return [`M${0},${2}L${20},${18}Z`]
 }
+export function flowChartSort(w, h, l, r, t, b, ) {
 
-function flowChartSort(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var ir = w * 3 / 4
     var ib = h * 3 / 4
     return [`M${0},${1}L${1},${0}L${2},${1}L${1},${2}Z`, `M${0},${1}L${2},${1}`, `M${0},${1}L${1},${0}L${2},${1}L${1},${2}Z`]
 }
+export function flowChartSummingJunction(w, h, l, r, t, b, ) {
 
-function flowChartSummingJunction(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var idx = max(wd2, 2700000)
     var idy = hd2 * sin(2700000)
     var il = hc + 0 - idx
@@ -2761,41 +1920,21 @@ function flowChartSummingJunction(w, h, l, r, t, b, ) {
     var ib = vc + idy - 0
     return [`M${l},${vc}Z`, `M${il},${it}L${ir},${ib}M${ir},${it}L${il},${ib}`, `M${l},${vc}Z`]
 }
+export function flowChartTerminator(w, h, l, r, t, b, ) {
 
-function flowChartTerminator(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var il = w * 1018 / 21600
     var ir = w * 20582 / 21600
     var it = h * 3163 / 21600
     var ib = h * 18437 / 21600
     return [`M${3475},${0}L${18125},${0}L${3475},${21600}Z`]
 }
-
-function foldedCorner(w, h, l, r, t, b, adj) {
+export function foldedCorner(w, h, l, r, t, b, adj) {
     adj = adj || 16667
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var dy2 = ss * a / 100000
     var dy1 = dy2 * 1 / 5
@@ -2805,41 +1944,21 @@ function foldedCorner(w, h, l, r, t, b, adj) {
     var y1 = y2 + dy1 - 0
     return [`M${l},${t}L${r},${t}L${r},${y2}L${x1},${b}L${l},${b}Z`, `M${x1},${b}L${x2},${y1}L${r},${y2}Z`, `M${x1},${b}L${x2},${y1}L${r},${y2}L${x1},${b}L${l},${b}L${l},${t}L${r},${t}L${r},${y2}`]
 }
-
-function frame(w, h, l, r, t, b, adj1) {
+export function frame(w, h, l, r, t, b, adj1) {
     adj1 = adj1 || 12500
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 50000 ? 50000 : adj1)
     var x1 = ss * a1 / 100000
     var x4 = r + 0 - x1
     var y4 = b + 0 - x1
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}ZM${x1},${x1}L${x1},${y4}L${x4},${y4}L${x4},${x1}Z`]
 }
+export function funnel(w, h, l, r, t, b, ) {
 
-function funnel(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var d = ss * 1 / 20
     var rw2 = wd2 + 0 - d
     var rh2 = hd4 + 0 - d
@@ -2873,22 +1992,12 @@ function funnel(w, h, l, r, t, b, ) {
     var cd = cd2 * 2 / 1
     return [`M${x1},${y1}L${x3},${y2}ZM${x2},${hd4}Z`]
 }
-
-function gear6(w, h, l, r, t, b, adj1, adj2) {
+export function gear6(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 15000
     adj2 = adj2 || 3526
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 20000 ? 20000 : adj1)
     var a2 = adj2 < 0 ? 0 : (adj2 > 5358 ? 5358 : adj2)
     var th = ss * a1 / 100000
@@ -2998,22 +2107,12 @@ function gear6(w, h, l, r, t, b, adj1, adj2) {
     var xCxn4 = r + 0 / xCxn1
     return [`M${xA1},${yA1}L${xB1},${yB1}L${xC1},${yC1}L${xD1},${yD1}L${xC1},${yB2}L${xB1},${yC2}L${xA1},${yD2}L${xF6},${yB3}L${xE6},${yB3}L${xA6},${yD3}L${xB4},${yC2}L${xC4},${yB2}L${xD4},${yA2}L${xB5},${yC1}L${xC5},${yB1}L${xD5},${yA1}L${xE6},${yC6}L${xF6},${yC6}L${xD6},${yD6}Z`]
 }
-
-function gear9(w, h, l, r, t, b, adj1, adj2) {
+export function gear9(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 10000
     adj2 = adj2 || 1763
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 20000 ? 20000 : adj1)
     var a2 = adj2 < 0 ? 0 : (adj2 > 2679 ? 2679 : adj2)
     var th = ss * a1 / 100000
@@ -3258,22 +2357,12 @@ function gear9(w, h, l, r, t, b, adj1, adj2) {
     var xCxn8 = r + 0 / xCxn1
     return [`M${xA1},${yA1}L${xB1},${yB1}L${xC1},${yC1}L${xD1},${yD1}L${xB2},${yB2}L${xC2},${yC2}L${xD2},${yD2}L${xB3},${yB3}L${xC3},${yC3}L${xD3},${yD3}L${xB4},${yB4}L${xC4},${yC4}L${xD4},${yD4}L${xB5},${yC4}L${xC5},${yB4}L${xD5},${yA4}L${xB6},${yC3}L${xC6},${yB3}L${xD6},${yA3}L${xB7},${yC2}L${xC7},${yB2}L${xD7},${yA2}L${xB8},${yC1}L${xC8},${yB1}L${xD8},${yA1}L${xE9},${yC9}L${xF9},${yC9}L${xD9},${yD9}Z`]
 }
-
-function halfFrame(w, h, l, r, t, b, adj1, adj2) {
+export function halfFrame(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 33333
     adj2 = adj2 || 33333
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj2 = 100000 * w / ss
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
     var x1 = ss * a2 / 100000
@@ -3292,20 +2381,10 @@ function halfFrame(w, h, l, r, t, b, adj1, adj2) {
     var cy2 = y1 * 1 / 2
     return [`M${l},${t}L${r},${t}L${x2},${y1}L${x1},${y1}L${x1},${y2}L${l},${b}Z`]
 }
+export function heart(w, h, l, r, t, b, ) {
 
-function heart(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var dx1 = w * 49 / 48
     var dx2 = w * 10 / 48
     var x1 = hc + 0 - dx1
@@ -3318,22 +2397,12 @@ function heart(w, h, l, r, t, b, ) {
     var ib = h * 2 / 3
     return [`M${hc},${hd4}ZZZ`]
 }
-
-function heptagon(w, h, l, r, t, b, ) {
+export function heptagon(w, h, l, r, t, b, ) {
     hf = hf || 102572
     vf = vf || 105210
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var swd2 = wd2 * hf / 100000
     var shd2 = hd2 * vf / 100000
     var svc = vc * / vf
@@ -3355,22 +2424,12 @@ function heptagon(w, h, l, r, t, b, ) {
     var ib = b + 0 - y1
     return [`M${x1},${y2}L${x2},${y1}L${hc},${t}L${x5},${y1}L${x6},${y2}L${x4},${y3}L${x3},${y3}Z`]
 }
-
-function hexagon(w, h, l, r, t, b, adj) {
+export function hexagon(w, h, l, r, t, b, adj) {
     adj = adj || 25000
     vf = vf || 115470
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj = 50000 * w / ss
     var a = adj < 0 ? 0 : (adj > maxAdj ? maxAdj : adj)
     var shd2 = hd2 * vf / 100000
@@ -3393,21 +2452,11 @@ function hexagon(w, h, l, r, t, b, adj) {
     var ib = b + 0 - it
     return [`M${l},${vc}L${x1},${y1}L${x2},${y1}L${r},${vc}L${x2},${y2}L${x1},${y2}Z`]
 }
-
-function homePlate(w, h, l, r, t, b, adj) {
+export function homePlate(w, h, l, r, t, b, adj) {
     adj = adj || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj = 100000 * w / ss
     var a = adj < 0 ? 0 : (adj > maxAdj ? maxAdj : adj)
     var dx1 = ss * a / 100000
@@ -3416,21 +2465,11 @@ function homePlate(w, h, l, r, t, b, adj) {
     var x2 = x1 * 1 / 2
     return [`M${l},${t}L${x1},${t}L${r},${vc}L${x1},${b}L${l},${b}Z`]
 }
-
-function horizontalScroll(w, h, l, r, t, b, adj) {
+export function horizontalScroll(w, h, l, r, t, b, adj) {
     adj = adj || 12500
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 25000 ? 25000 : adj)
     var ch = ss * a / 100000
     var ch2 = ch * 1 / 2
@@ -3444,20 +2483,10 @@ function horizontalScroll(w, h, l, r, t, b, adj) {
     var x4 = r + 0 - ch2
     return [`M${r},${ch2}L${x4},${ch2}L${x3},${ch}L${ch2},${ch}L${l},${y7}L${ch},${y6}L${x4},${y6}ZM${ch2},${y4}Z`, `M${ch2},${y4}ZM${x4},${ch}Z`, `M${l},${y3}L${x3},${ch}L${x3},${ch2}L${r},${y5}L${ch},${y6}L${ch},${y7}ZM${x3},${ch}L${x4},${ch}M${x4},${ch}L${x4},${ch2}M${ch2},${y4}L${ch2},${y3}M${ch},${y3}L${ch},${y6}`]
 }
+export function irregularSeal1(w, h, l, r, t, b, ) {
 
-function irregularSeal1(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x5 = w * 4627 / 21600
     var x12 = w * 8485 / 21600
     var x21 = w * 16702 / 21600
@@ -3468,20 +2497,10 @@ function irregularSeal1(w, h, l, r, t, b, ) {
     var y18 = h * 13290 / 21600
     return [`M${10800},${5800}L${14522},${0}L${14155},${5325}L${18380},${4457}L${16702},${7315}L${21097},${8137}L${17607},${10475}L${21600},${13290}L${16837},${12942}L${18145},${18095}L${14020},${14457}L${13247},${19737}L${10532},${14935}L${8485},${21600}L${7715},${15627}L${4762},${17617}L${5667},${13937}L${135},${14587}L${3722},${11775}L${0},${8615}L${4627},${7617}L${370},${2295}L${7312},${6320}L${8352},${2295}Z`]
 }
+export function irregularSeal2(w, h, l, r, t, b, ) {
 
-function irregularSeal2(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x2 = w * 9722 / 21600
     var x5 = w * 5372 / 21600
     var x16 = w * 11612 / 21600
@@ -3495,22 +2514,12 @@ function irregularSeal2(w, h, l, r, t, b, ) {
     var y24 = h * 6645 / 21600
     return [`M${11462},${4342}L${14790},${0}L${14525},${5777}L${18007},${3172}L${16380},${6532}L${21600},${6645}L${16985},${9402}L${18270},${11290}L${16380},${12310}L${18877},${15632}L${14640},${14350}L${14942},${17370}L${12180},${15935}L${11612},${18842}L${9872},${17370}L${8700},${19712}L${7527},${18125}L${4917},${21600}L${4805},${18240}L${1285},${17825}L${3330},${15370}L${0},${12877}L${3935},${11592}L${1172},${8270}L${5372},${7817}L${4502},${3625}L${8550},${6382}L${9722},${1887}Z`]
 }
-
-function leftArrow(w, h, l, r, t, b, adj1, adj2) {
+export function leftArrow(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 50000
     adj2 = adj2 || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj2 = 100000 * w / ss
     var a1 = adj1 < 0 ? 0 : (adj1 > 100000 ? 100000 : adj1)
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
@@ -3523,24 +2532,14 @@ function leftArrow(w, h, l, r, t, b, adj1, adj2) {
     var x1 = x2 + -0
     return [`M${l},${vc}L${x2},${t}L${x2},${y1}L${r},${y1}L${r},${y2}L${x2},${y2}L${x2},${b}Z`]
 }
-
-function leftArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
+export function leftArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
     adj1 = adj1 || 25000
     adj2 = adj2 || 25000
     adj3 = adj3 || 25000
     adj4 = adj4 || 64977
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj2 = 50000 * h / ss
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
     var maxAdj1 = a2 * 2 / 1
@@ -3562,22 +2561,12 @@ function leftArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
     var x3 = x2 + r / 2
     return [`M${l},${vc}L${x1},${y1}L${x1},${y2}L${x2},${y2}L${x2},${t}L${r},${t}L${r},${b}L${x2},${b}L${x2},${y3}L${x1},${y3}L${x1},${y4}Z`]
 }
-
-function leftBrace(w, h, l, r, t, b, adj1, adj2) {
+export function leftBrace(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 8333
     adj2 = adj2 || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a2 = adj2 < 0 ? 0 : (adj2 > 100000 ? 100000 : adj2)
     var q1 = 100000 + 0 - a2
     var q2 = min(q1, a2)
@@ -3594,21 +2583,11 @@ function leftBrace(w, h, l, r, t, b, adj1, adj2) {
     var ib = b + dy1 - y1
     return [`M${r},${b}L${hc},${y4}L${hc},${y1}Z`, `M${r},${b}L${hc},${y4}L${hc},${y1}`]
 }
-
-function leftBracket(w, h, l, r, t, b, adj) {
+export function leftBracket(w, h, l, r, t, b, adj) {
     adj = adj || 8333
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj = 50000 * h / ss
     var a = adj < 0 ? 0 : (adj > maxAdj ? maxAdj : adj)
     var y1 = ss * a / 100000
@@ -3620,8 +2599,7 @@ function leftBracket(w, h, l, r, t, b, adj) {
     var ib = b + dy1 - y1
     return [`M${r},${b}L${l},${y1}Z`, `M${r},${b}L${l},${y1}`]
 }
-
-function leftCircularArrow(w, h, l, r, t, b, adj2, adj4, adj3, adj1, adj5) {
+export function leftCircularArrow(w, h, l, r, t, b, adj2, adj4, adj3, adj1, adj5) {
     adj1 = adj1 || 12500
     adj2 = adj2 || -1142319
     adj3 = adj3 || 1142319
@@ -3629,16 +2607,7 @@ function leftCircularArrow(w, h, l, r, t, b, adj2, adj4, adj3, adj1, adj5) {
     adj5 = adj5 || 12500
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a5 = adj5 < 0 ? 0 : (adj5 > 25000 ? 25000 : adj5)
     var maxAdj1 = a5 * 2 / 1
     var a1 = adj1 < 0 ? 0 : (adj1 > maxAdj1 ? maxAdj1 : adj1)
@@ -3846,22 +2815,12 @@ function leftCircularArrow(w, h, l, r, t, b, adj2, adj4, adj3, adj1, adj5) {
     var ib = vc + idy - 0
     return [`M${xE},${yE}L${xD},${yD}L${xBp},${yBp}L${xA},${yA}L${xGp},${yGp}L${xF},${yF}Z`]
 }
-
-function leftRightArrow(w, h, l, r, t, b, adj1, adj2) {
+export function leftRightArrow(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 50000
     adj2 = adj2 || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj2 = 50000 * w / ss
     var a1 = adj1 < 0 ? 0 : (adj1 > 100000 ? 100000 : adj1)
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
@@ -3875,24 +2834,14 @@ function leftRightArrow(w, h, l, r, t, b, adj1, adj2) {
     var x4 = x3 + dx1 - 0
     return [`M${l},${vc}L${x2},${t}L${x2},${y1}L${x3},${y1}L${x3},${t}L${r},${vc}L${x3},${b}L${x3},${y2}L${x2},${y2}L${x2},${b}Z`]
 }
-
-function leftRightArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
+export function leftRightArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
     adj1 = adj1 || 25000
     adj2 = adj2 || 25000
     adj3 = adj3 || 25000
     adj4 = adj4 || 48123
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj2 = 50000 * h / ss
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
     var maxAdj1 = a2 * 2 / 1
@@ -3915,8 +2864,7 @@ function leftRightArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
     var x3 = hc + dx2 - 0
     return [`M${l},${vc}L${x1},${y1}L${x1},${y2}L${x2},${y2}L${x2},${t}L${x3},${t}L${x3},${y2}L${x4},${y2}L${x4},${y1}L${r},${vc}L${x4},${y4}L${x4},${y3}L${x3},${y3}L${x3},${b}L${x2},${b}L${x2},${y3}L${x1},${y3}L${x1},${y4}Z`]
 }
-
-function leftRightCircularArrow(w, h, l, r, t, b, adj2, adj4, adj3, adj1, adj5) {
+export function leftRightCircularArrow(w, h, l, r, t, b, adj2, adj4, adj3, adj1, adj5) {
     adj1 = adj1 || 12500
     adj2 = adj2 || 1142319
     adj3 = adj3 || 20457681
@@ -3924,16 +2872,7 @@ function leftRightCircularArrow(w, h, l, r, t, b, adj2, adj4, adj3, adj1, adj5) 
     adj5 = adj5 || 12500
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a5 = adj5 < 0 ? 0 : (adj5 > 25000 ? 25000 : adj5)
     var maxAdj1 = a5 * 2 / 1
     var a1 = adj1 < 0 ? 0 : (adj1 > maxAdj1 ? maxAdj1 : adj1)
@@ -4166,23 +3105,13 @@ function leftRightCircularArrow(w, h, l, r, t, b, adj2, adj4, adj3, adj1, adj5) 
     var ib = vc + idy - 0
     return [`M${xL},${yL}L${xKp},${yKp}L${xE},${yE}L${xGp},${yGp}L${xA},${yA}L${xBp},${yBp}L${xC},${yC}L${xJp},${yJp}Z`]
 }
-
-function leftRightRibbon(w, h, l, r, t, b, adj1, adj2, adj3) {
+export function leftRightRibbon(w, h, l, r, t, b, adj1, adj2, adj3) {
     adj1 = adj1 || 50000
     adj2 = adj2 || 50000
     adj3 = adj3 || 16667
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a3 = adj3 < 0 ? 0 : (adj3 > 33333 ? 33333 : adj3)
     var maxAdj1 = 100000 + 0 - a3
     var a1 = adj1 < 0 ? 0 : (adj1 > maxAdj1 ? maxAdj1 : adj1)
@@ -4208,23 +3137,13 @@ function leftRightRibbon(w, h, l, r, t, b, adj1, adj2, adj3) {
     var y2 = ry2 + 0 - hR
     return [`M${l},${ly2}L${x1},${t}L${x1},${ly1}L${hc},${ly1}L${x4},${ry2}L${x4},${ry1}L${r},${ry3}L${x4},${b}L${x4},${ry4}L${hc},${ry4}L${x2},${ly3}L${x1},${ly3}L${x1},${ly4}Z`, `M${x3},${y1}L${x3},${ry2}Z`, `M${l},${ly2}L${x1},${t}L${x1},${ly1}L${hc},${ly1}L${x4},${ry2}L${x4},${ry1}L${r},${ry3}L${x4},${b}L${x4},${ry4}L${hc},${ry4}L${x2},${ly3}L${x1},${ly3}L${x1},${ly4}ZM${x3},${y1}L${x3},${ry2}M${x2},${y2}L${x2},${ly3}`]
 }
-
-function leftRightUpArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
+export function leftRightUpArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
     adj1 = adj1 || 25000
     adj2 = adj2 || 25000
     adj3 = adj3 || 25000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a2 = adj2 < 0 ? 0 : (adj2 > 50000 ? 50000 : adj2)
     var maxAdj1 = a2 * 2 / 1
     var a1 = adj1 < 0 ? 0 : (adj1 > maxAdj1 ? maxAdj1 : adj1)
@@ -4248,23 +3167,13 @@ function leftRightUpArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
     var ir = r + 0 - il
     return [`M${l},${y4}L${x1},${y2}L${x1},${y3}L${x3},${y3}L${x3},${x1}L${x2},${x1}L${hc},${t}L${x5},${x1}L${x4},${x1}L${x4},${y3}L${x6},${y3}L${x6},${y2}L${r},${y4}L${x6},${b}L${x6},${y5}L${x1},${y5}L${x1},${b}Z`]
 }
-
-function leftUpArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
+export function leftUpArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
     adj1 = adj1 || 25000
     adj2 = adj2 || 25000
     adj3 = adj3 || 25000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a2 = adj2 < 0 ? 0 : (adj2 > 50000 ? 50000 : adj2)
     var maxAdj1 = a2 * 2 / 1
     var a1 = adj1 < 0 ? 0 : (adj1 > maxAdj1 ? maxAdj1 : adj1)
@@ -4287,20 +3196,10 @@ function leftUpArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
     var cy1 = x1 + y5 / 2
     return [`M${l},${y4}L${x1},${y2}L${x1},${y3}L${x3},${y3}L${x3},${x1}L${x2},${x1}L${x4},${t}L${r},${x1}L${x5},${x1}L${x5},${y5}L${x1},${y5}L${x1},${b}Z`]
 }
+export function lightningBolt(w, h, l, r, t, b, ) {
 
-function lightningBolt(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var x1 = w * 5022 / 21600
     var x3 = w * 8472 / 21600
     var x4 = w * 8757 / 21600
@@ -4317,35 +3216,23 @@ function lightningBolt(w, h, l, r, t, b, ) {
     var y11 = h * 14915 / 21600
     return [`M${8472},${0}L${12860},${6080}L${11050},${6797}L${16577},${12007}L${14767},${12877}L${21600},${21600}L${10012},${14915}L${12222},${13987}L${5022},${9705}L${7602},${8382}L${0},${3890}Z`]
 }
-
-function line(w, h, l, r, t, b, ) {
+export function line(w, h, l, r, t, b, ) {
 
     // no guides
     return [`M${l},${t}L${r},${b}`]
 }
-
-function lineInv(w, h, l, r, t, b, ) {
+export function lineInv(w, h, l, r, t, b, ) {
 
     // no guides
     return [`M${l},${b}L${r},${t}`]
 }
-
-function mathDivide(w, h, l, r, t, b, adj1, adj2, adj3) {
+export function mathDivide(w, h, l, r, t, b, adj1, adj2, adj3) {
     adj1 = adj1 || 23520
     adj2 = adj2 || 5880
     adj3 = adj3 || 11760
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 1000 ? 1000 : (adj1 > 36745 ? 36745 : adj1)
     var ma1 = 0 + 0 - a1
     var ma3h = 73490 + ma1 / 4
@@ -4370,22 +3257,12 @@ function mathDivide(w, h, l, r, t, b, adj1, adj2, adj3) {
     var x2 = hc + 0 - rad
     return [`M${hc},${y1}ZM${hc},${y5}ZM${x1},${y3}L${x3},${y3}L${x3},${y4}L${x1},${y4}Z`]
 }
-
-function mathEqual(w, h, l, r, t, b, adj1, adj2) {
+export function mathEqual(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 23520
     adj2 = adj2 || 11760
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 36745 ? 36745 : adj1)
     var 2 a1 = a1 * 2 / 1
     var mAdj2 = 100000 + 0 - 2 a1
@@ -4403,21 +3280,11 @@ function mathEqual(w, h, l, r, t, b, adj1, adj2) {
     var yC2 = y3 + y4 / 2
     return [`M${x1},${y1}L${x2},${y1}L${x2},${y2}L${x1},${y2}ZM${x1},${y3}L${x2},${y3}L${x2},${y4}L${x1},${y4}Z`]
 }
-
-function mathMinus(w, h, l, r, t, b, adj1) {
+export function mathMinus(w, h, l, r, t, b, adj1) {
     adj1 = adj1 || 23520
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 100000 ? 100000 : adj1)
     var dy1 = h * a1 / 200000
     var dx1 = w * 73490 / 200000
@@ -4427,21 +3294,11 @@ function mathMinus(w, h, l, r, t, b, adj1) {
     var x2 = hc + dx1 - 0
     return [`M${x1},${y1}L${x2},${y1}L${x2},${y2}L${x1},${y2}Z`]
 }
-
-function mathMultiply(w, h, l, r, t, b, adj1) {
+export function mathMultiply(w, h, l, r, t, b, adj1) {
     adj1 = adj1 || 23520
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 51965 ? 51965 : adj1)
     var th = ss * a1 / 100000
     var a = atan2(w, h)
@@ -4475,23 +3332,13 @@ function mathMultiply(w, h, l, r, t, b, adj1) {
     var yC3 = b + 0 - yM
     return [`M${xA},${yA}L${xB},${yB}L${hc},${yC}L${xD},${yB}L${xE},${yA}L${xF},${vc}L${xE},${yG}L${xD},${yH}L${hc},${yI}L${xB},${yH}L${xA},${yG}L${xL},${vc}Z`]
 }
-
-function mathNotEqual(w, h, l, r, t, b, adj1, adj2, adj3) {
+export function mathNotEqual(w, h, l, r, t, b, adj1, adj2, adj3) {
     adj1 = adj1 || 23520
     adj2 = adj2 || 6600000
     adj3 = adj3 || 11760
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 50000 ? 50000 : adj1)
     var crAng = adj2 < 4200000 ? 4200000 : (adj2 > 6600000 ? 6600000 : adj2)
     var 2 a1 = a1 * 2 / 1
@@ -4549,21 +3396,11 @@ function mathNotEqual(w, h, l, r, t, b, adj1, adj2, adj3) {
     var yC4 = dry + dly / 2
     return [`M${x1},${y1}L${x6},${y1}L${lx},${ly}L${rx},${ry}L${rx6},${y1}L${x8},${y1}L${x8},${y2}L${rx5},${y2}L${rx4},${y3}L${x8},${y3}L${x8},${y4}L${rx3},${y4}L${drx},${dry}L${dlx},${dly}L${x3},${y4}L${x1},${y4}L${x1},${y3}L${x4},${y3}L${x5},${y2}L${x1},${y2}Z`]
 }
-
-function mathPlus(w, h, l, r, t, b, adj1) {
+export function mathPlus(w, h, l, r, t, b, adj1) {
     adj1 = adj1 || 23520
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 73490 ? 73490 : adj1)
     var dx1 = w * 73490 / 200000
     var dy1 = h * 73490 / 200000
@@ -4578,21 +3415,11 @@ function mathPlus(w, h, l, r, t, b, adj1) {
     var y4 = vc + dy1 - 0
     return [`M${x1},${y2}L${x2},${y2}L${x2},${y1}L${x3},${y1}L${x3},${y2}L${x4},${y2}L${x4},${y3}L${x3},${y3}L${x3},${y4}L${x2},${y4}L${x2},${y3}L${x1},${y3}Z`]
 }
-
-function moon(w, h, l, r, t, b, adj) {
+export function moon(w, h, l, r, t, b, adj) {
     adj = adj || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 87500 ? 87500 : adj)
     var g0 = ss * a / 100000
     var g0w = g0 * w / ss
@@ -4629,22 +3456,12 @@ function moon(w, h, l, r, t, b, adj) {
     var swAng1 = enAng1 + 0 - stAng1
     return [`M${r},${b}Z`]
 }
-
-function nonIsoscelesTrapezoid(w, h, l, r, t, b, adj1, adj2) {
+export function nonIsoscelesTrapezoid(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 25000
     adj2 = adj2 || 25000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj = 50000 * w / ss
     var a1 = adj1 < 0 ? 0 : (adj1 > maxAdj ? maxAdj : adj1)
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj ? maxAdj : adj2)
@@ -4660,21 +3477,11 @@ function nonIsoscelesTrapezoid(w, h, l, r, t, b, adj1, adj2) {
     var ir = r + 0 - irt
     return [`M${l},${b}L${x2},${t}L${x3},${t}L${r},${b}Z`]
 }
-
-function noSmoking(w, h, l, r, t, b, adj) {
+export function noSmoking(w, h, l, r, t, b, adj) {
     adj = adj || 18750
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var dr = ss * a / 100000
     var iwd2 = wd2 + 0 - dr
@@ -4709,22 +3516,12 @@ function noSmoking(w, h, l, r, t, b, adj) {
     var ib = vc + idy - 0
     return [`M${l},${vc}ZM${x1},${y1}ZM${x2},${y2}Z`]
 }
-
-function notchedRightArrow(w, h, l, r, t, b, adj1, adj2) {
+export function notchedRightArrow(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 50000
     adj2 = adj2 || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj2 = 100000 * w / ss
     var a1 = adj1 < 0 ? 0 : (adj1 > 100000 ? 100000 : adj1)
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
@@ -4737,21 +3534,11 @@ function notchedRightArrow(w, h, l, r, t, b, adj1, adj2) {
     var x3 = r + 0 - x1
     return [`M${l},${y1}L${x2},${y1}L${x2},${t}L${r},${vc}L${x2},${b}L${x2},${y2}L${l},${y2}L${x1},${vc}Z`]
 }
-
-function octagon(w, h, l, r, t, b, adj) {
+export function octagon(w, h, l, r, t, b, adj) {
     adj = adj || 29289
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var x1 = ss * a / 100000
     var x2 = r + 0 - x1
@@ -4761,21 +3548,11 @@ function octagon(w, h, l, r, t, b, adj) {
     var ib = b + 0 - il
     return [`M${l},${x1}L${x1},${t}L${x2},${t}L${r},${x1}L${r},${y2}L${x2},${b}L${x1},${b}L${l},${y2}Z`]
 }
-
-function parallelogram(w, h, l, r, t, b, adj) {
+export function parallelogram(w, h, l, r, t, b, adj) {
     adj = adj || 25000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj = 100000 * w / ss
     var a = adj < 0 ? 0 : (adj > maxAdj ? maxAdj : adj)
     var x1 = ss * a / 200000
@@ -4796,22 +3573,12 @@ function parallelogram(w, h, l, r, t, b, adj) {
     var y2 = b + 0 - y1
     return [`M${l},${b}L${x2},${t}L${r},${t}L${x5},${b}Z`]
 }
-
-function pentagon(w, h, l, r, t, b, ) {
+export function pentagon(w, h, l, r, t, b, ) {
     hf = hf || 105146
     vf = vf || 110557
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var swd2 = wd2 * hf / 100000
     var shd2 = hd2 * vf / 100000
     var svc = vc * / vf
@@ -4828,22 +3595,12 @@ function pentagon(w, h, l, r, t, b, ) {
     var it = y1 * dx2 / dx1
     return [`M${x1},${y1}L${hc},${t}L${x4},${y1}L${x3},${y2}L${x2},${y2}Z`]
 }
-
-function pie(w, h, l, r, t, b, adj1, adj2) {
+export function pie(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 0
     adj2 = adj2 || 16200000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var stAng = adj1 < 0 ? 0 : (adj1 > 21599999 ? 21599999 : adj1)
     var enAng = adj2 < 0 ? 0 : (adj2 > 21599999 ? 21599999 : adj2)
     var sw1 = enAng + 0 - stAng
@@ -4869,41 +3626,21 @@ function pie(w, h, l, r, t, b, adj1, adj2) {
     var ib = vc + idy - 0
     return [`M${x1},${y1}L${hc},${vc}Z`]
 }
+export function pieWedge(w, h, l, r, t, b, ) {
 
-function pieWedge(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var g1 = max(w, 13500000)
     var g2 = h * sin(13500000)
     var x1 = r + g1 - 0
     var y1 = b + g2 - 0
     return [`M${l},${b}L${r},${b}Z`]
 }
-
-function plaque(w, h, l, r, t, b, adj) {
+export function plaque(w, h, l, r, t, b, adj) {
     adj = adj || 16667
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var x1 = ss * a / 100000
     var x2 = r + 0 - x1
@@ -4913,41 +3650,21 @@ function plaque(w, h, l, r, t, b, adj) {
     var ib = b + 0 - il
     return [`M${l},${x1}L${x2},${t}L${r},${y2}L${x1},${b}Z`]
 }
+export function plaqueTabs(w, h, l, r, t, b, ) {
 
-function plaqueTabs(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var md = sqrt(w * w + h * h + 0 * 0)
     var dx = 1 * md / 20
     var y1 = 0 + b - dx
     var x1 = 0 + r - dx
     return [`M${l},${t}L${dx},${t}Z`, `M${l},${y1}L${l},${b}Z`, `M${r},${t}L${r},${dx}Z`, `M${x1},${b}L${r},${b}Z`]
 }
-
-function plus(w, h, l, r, t, b, adj) {
+export function plus(w, h, l, r, t, b, adj) {
     adj = adj || 25000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var x1 = ss * a / 100000
     var x2 = r + 0 - x1
@@ -4959,23 +3676,13 @@ function plus(w, h, l, r, t, b, adj) {
     var ib = d > 0 ? y2 : b
     return [`M${l},${x1}L${x1},${x1}L${x1},${t}L${x2},${t}L${x2},${x1}L${r},${x1}L${r},${y2}L${x2},${y2}L${x2},${b}L${x1},${b}L${x1},${y2}L${l},${y2}Z`]
 }
-
-function quadArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
+export function quadArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
     adj1 = adj1 || 22500
     adj2 = adj2 || 22500
     adj3 = adj3 || 22500
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a2 = adj2 < 0 ? 0 : (adj2 > 50000 ? 50000 : adj2)
     var maxAdj1 = a2 * 2 / 1
     var a1 = adj1 < 0 ? 0 : (adj1 > maxAdj1 ? maxAdj1 : adj1)
@@ -4999,24 +3706,14 @@ function quadArrow(w, h, l, r, t, b, adj1, adj2, adj3) {
     var ir = r + 0 - il
     return [`M${l},${vc}L${x1},${y2}L${x1},${y3}L${x3},${y3}L${x3},${x1}L${x2},${x1}L${hc},${t}L${x5},${x1}L${x4},${x1}L${x4},${y3}L${x6},${y3}L${x6},${y2}L${r},${vc}L${x6},${y5}L${x6},${y4}L${x4},${y4}L${x4},${y6}L${x5},${y6}L${hc},${b}L${x2},${y6}L${x3},${y6}L${x3},${y4}L${x1},${y4}L${x1},${y5}Z`]
 }
-
-function quadArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
+export function quadArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
     adj1 = adj1 || 18515
     adj2 = adj2 || 18515
     adj3 = adj3 || 18515
     adj4 = adj4 || 48123
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a2 = adj2 < 0 ? 0 : (adj2 > 50000 ? 50000 : adj2)
     var maxAdj1 = a2 * 2 / 1
     var a1 = adj1 < 0 ? 0 : (adj1 > maxAdj1 ? maxAdj1 : adj1)
@@ -5046,28 +3743,17 @@ function quadArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
     var y5 = vc + dx3 - 0
     return [`M${l},${vc}L${ah},${y3}L${ah},${y4}L${x2},${y4}L${x2},${y2}L${x4},${y2}L${x4},${ah}L${x3},${ah}L${hc},${t}L${x6},${ah}L${x5},${ah}L${x5},${y2}L${x7},${y2}L${x7},${y4}L${x8},${y4}L${x8},${y3}L${r},${vc}L${x8},${y6}L${x8},${y5}L${x7},${y5}L${x7},${y7}L${x5},${y7}L${x5},${y8}L${x6},${y8}L${hc},${b}L${x3},${y8}L${x4},${y8}L${x4},${y7}L${x2},${y7}L${x2},${y5}L${ah},${y5}L${ah},${y6}Z`]
 }
-
-function rect(w, h, l, r, t, b, ) {
+export function rect(w, h, l, r, t, b, ) {
 
     // no guides
     return [`M${l},${t}L${r},${t}L${r},${b}L${l},${b}Z`]
 }
-
-function ribbon(w, h, l, r, t, b, adj1, adj2) {
+export function ribbon(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 16667
     adj2 = adj2 || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 33333 ? 33333 : adj1)
     var a2 = adj2 < 25000 ? 25000 : (adj2 > 75000 ? 75000 : adj2)
     var x10 = r + 0 - wd8
@@ -5089,22 +3775,12 @@ function ribbon(w, h, l, r, t, b, adj1, adj2) {
     var y6 = y2 + 0 - hR
     return [`M${l},${t}L${x4},${t}L${x3},${y1}L${x8},${y2}L${x7},${y1}L${r},${t}L${x10},${y3}L${r},${y4}L${x9},${y4}L${x9},${y5}L${x3},${b}L${x2},${y4}L${l},${y4}L${wd8},${y3}Z`, `M${x5},${hR}L${x3},${y1}L${x5},${y2}ZM${x6},${hR}L${x8},${y1}L${x6},${y2}Z`, `M${l},${t}L${x4},${t}L${x3},${y1}L${x8},${y2}L${x7},${y1}L${r},${t}L${x10},${y3}L${r},${y4}L${x9},${y4}L${x9},${y5}L${x3},${b}L${x2},${y4}L${l},${y4}L${wd8},${y3}ZM${x5},${hR}L${x5},${y2}M${x6},${y2}L${x6},${hR}M${x2},${y4}L${x2},${y6}M${x9},${y6}L${x9},${y4}`]
 }
-
-function ribbon2(w, h, l, r, t, b, adj1, adj2) {
+export function ribbon2(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 16667
     adj2 = adj2 || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 33333 ? 33333 : adj1)
     var a2 = adj2 < 25000 ? 25000 : (adj2 > 75000 ? 75000 : adj2)
     var x10 = r + 0 - wd8
@@ -5128,22 +3804,12 @@ function ribbon2(w, h, l, r, t, b, adj1, adj2) {
     var y7 = y1 + 0 - hR
     return [`M${l},${b}L${x4},${b}L${x3},${y1}L${x8},${y2}L${x7},${y1}L${r},${b}L${x10},${y3}L${r},${y4}L${x9},${y4}L${x9},${hR}L${x3},${t}L${x2},${y4}L${l},${y4}L${wd8},${y3}Z`, `M${x5},${y6}L${x3},${y1}L${x5},${y2}ZM${x6},${y6}L${x8},${y1}L${x6},${y2}Z`, `M${l},${b}L${wd8},${y3}L${l},${y4}L${x2},${y4}L${x2},${hR}L${x8},${t}L${x9},${y4}L${x9},${y4}L${r},${y4}L${x10},${y3}L${r},${b}L${x7},${b}L${x8},${y1}L${x3},${y2}L${x4},${y1}ZM${x5},${y2}L${x5},${y6}M${x6},${y6}L${x6},${y2}M${x2},${y7}L${x2},${y4}M${x9},${y4}L${x9},${y7}`]
 }
-
-function rightArrow(w, h, l, r, t, b, adj1, adj2) {
+export function rightArrow(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 50000
     adj2 = adj2 || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj2 = 100000 * w / ss
     var a1 = adj1 < 0 ? 0 : (adj1 > 100000 ? 100000 : adj1)
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
@@ -5156,24 +3822,14 @@ function rightArrow(w, h, l, r, t, b, adj1, adj2) {
     var x2 = x1 + dx2 - 0
     return [`M${l},${y1}L${x1},${y1}L${x1},${t}L${r},${vc}L${x1},${b}L${x1},${y2}L${l},${y2}Z`]
 }
-
-function rightArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
+export function rightArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
     adj1 = adj1 || 25000
     adj2 = adj2 || 25000
     adj3 = adj3 || 25000
     adj4 = adj4 || 64977
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj2 = 50000 * h / ss
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
     var maxAdj1 = a2 * 2 / 1
@@ -5195,22 +3851,12 @@ function rightArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
     var x1 = x2 * 1 / 2
     return [`M${l},${t}L${x2},${t}L${x2},${y2}L${x3},${y2}L${x3},${y1}L${r},${vc}L${x3},${y4}L${x3},${y3}L${x2},${y3}L${x2},${b}L${l},${b}Z`]
 }
-
-function rightBrace(w, h, l, r, t, b, adj1, adj2) {
+export function rightBrace(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 8333
     adj2 = adj2 || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a2 = adj2 < 0 ? 0 : (adj2 > 100000 ? 100000 : adj2)
     var q1 = 100000 + 0 - a2
     var q2 = min(q1, a2)
@@ -5228,21 +3874,11 @@ function rightBrace(w, h, l, r, t, b, adj1, adj2) {
     var ib = b + dy1 - y1
     return [`M${l},${t}L${hc},${y2}L${hc},${y4}Z`, `M${l},${t}L${hc},${y2}L${hc},${y4}`]
 }
-
-function rightBracket(w, h, l, r, t, b, adj) {
+export function rightBracket(w, h, l, r, t, b, adj) {
     adj = adj || 8333
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj = 50000 * h / ss
     var a = adj < 0 ? 0 : (adj > maxAdj ? maxAdj : adj)
     var y1 = ss * a / 100000
@@ -5254,21 +3890,11 @@ function rightBracket(w, h, l, r, t, b, adj) {
     var ib = b + dy1 - y1
     return [`M${l},${t}L${r},${y2}Z`, `M${l},${t}L${r},${y2}`]
 }
-
-function round1Rect(w, h, l, r, t, b, adj) {
+export function round1Rect(w, h, l, r, t, b, adj) {
     adj = adj || 16667
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var dx1 = ss * a / 100000
     var x1 = r + 0 - dx1
@@ -5276,22 +3902,12 @@ function round1Rect(w, h, l, r, t, b, adj) {
     var ir = r + 0 - idx
     return [`M${l},${t}L${x1},${t}L${r},${b}L${l},${b}Z`]
 }
-
-function round2DiagRect(w, h, l, r, t, b, adj1, adj2) {
+export function round2DiagRect(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 16667
     adj2 = adj2 || 0
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 50000 ? 50000 : adj1)
     var a2 = adj2 < 0 ? 0 : (adj2 > 50000 ? 50000 : adj2)
     var x1 = ss * a1 / 100000
@@ -5307,22 +3923,12 @@ function round2DiagRect(w, h, l, r, t, b, adj1, adj2) {
     var ib = b + 0 - dx
     return [`M${x1},${t}L${x2},${t}L${r},${y1}L${a},${b}L${l},${x1}Z`]
 }
-
-function round2SameRect(w, h, l, r, t, b, adj1, adj2) {
+export function round2SameRect(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 16667
     adj2 = adj2 || 0
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 50000 ? 50000 : adj1)
     var a2 = adj2 < 0 ? 0 : (adj2 > 50000 ? 50000 : adj2)
     var tx1 = ss * a1 / 100000
@@ -5338,21 +3944,11 @@ function round2SameRect(w, h, l, r, t, b, adj1, adj2) {
     var ib = b + 0 - bdx
     return [`M${tx1},${t}L${tx2},${t}L${r},${by1}L${bx1},${b}L${l},${tx1}Z`]
 }
-
-function roundRect(w, h, l, r, t, b, adj) {
+export function roundRect(w, h, l, r, t, b, adj) {
     adj = adj || 16667
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var x1 = ss * a / 100000
     var x2 = r + 0 - x1
@@ -5362,40 +3958,20 @@ function roundRect(w, h, l, r, t, b, adj) {
     var ib = b + 0 - il
     return [`M${l},${x1}L${x2},${t}L${r},${y2}L${x1},${b}Z`]
 }
+export function rtTriangle(w, h, l, r, t, b, ) {
 
-function rtTriangle(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var it = h * 7 / 12
     var ir = w * 7 / 12
     var ib = h * 11 / 12
     return [`M${l},${b}L${l},${t}L${r},${b}Z`]
 }
-
-function smileyFace(w, h, l, r, t, b, adj) {
+export function smileyFace(w, h, l, r, t, b, adj) {
     adj = adj || 4653
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < -4653 ? -4653 : (adj > 4653 ? 4653 : adj)
     var x1 = w * 4969 / 21699
     var x2 = w * 6215 / 21600
@@ -5418,21 +3994,11 @@ function smileyFace(w, h, l, r, t, b, adj) {
     var hR = h * 1125 / 21600
     return [`M${l},${vc}Z`, `M${x2},${y1}M${x3},${y1}`, `M${x1},${y2}Z`, `M${l},${vc}Z`]
 }
-
-function snip1Rect(w, h, l, r, t, b, adj) {
+export function snip1Rect(w, h, l, r, t, b, adj) {
     adj = adj || 16667
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var dx1 = ss * a / 100000
     var x1 = r + 0 - dx1
@@ -5440,22 +4006,12 @@ function snip1Rect(w, h, l, r, t, b, adj) {
     var ir = x1 + r / 2
     return [`M${l},${t}L${x1},${t}L${r},${dx1}L${r},${b}L${l},${b}Z`]
 }
-
-function snip2DiagRect(w, h, l, r, t, b, adj1, adj2) {
+export function snip2DiagRect(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 0
     adj2 = adj2 || 16667
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 50000 ? 50000 : adj1)
     var a2 = adj2 < 0 ? 0 : (adj2 > 50000 ? 50000 : adj2)
     var lx1 = ss * a1 / 100000
@@ -5471,22 +4027,12 @@ function snip2DiagRect(w, h, l, r, t, b, adj1, adj2) {
     var ib = b + 0 - il
     return [`M${lx1},${t}L${rx2},${t}L${r},${rx1}L${r},${ly1}L${lx2},${b}L${rx1},${b}L${l},${ry1}L${l},${lx1}Z`]
 }
-
-function snip2SameRect(w, h, l, r, t, b, adj1, adj2) {
+export function snip2SameRect(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 16667
     adj2 = adj2 || 0
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 50000 ? 50000 : adj1)
     var a2 = adj2 < 0 ? 0 : (adj2 > 50000 ? 50000 : adj2)
     var tx1 = ss * a1 / 100000
@@ -5502,22 +4048,12 @@ function snip2SameRect(w, h, l, r, t, b, adj1, adj2) {
     var ib = by1 + b / 2
     return [`M${tx1},${t}L${tx2},${t}L${r},${tx1}L${r},${by1}L${bx2},${b}L${bx1},${b}L${l},${by1}L${l},${tx1}Z`]
 }
-
-function snipRoundRect(w, h, l, r, t, b, adj1, adj2) {
+export function snipRoundRect(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 16667
     adj2 = adj2 || 16667
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 50000 ? 50000 : adj1)
     var a2 = adj2 < 0 ? 0 : (adj2 > 50000 ? 50000 : adj2)
     var x1 = ss * a1 / 100000
@@ -5527,42 +4063,22 @@ function snipRoundRect(w, h, l, r, t, b, adj1, adj2) {
     var ir = x2 + r / 2
     return [`M${x1},${t}L${x2},${t}L${r},${dx2}L${r},${b}L${l},${b}L${l},${x1}Z`]
 }
+export function squareTabs(w, h, l, r, t, b, ) {
 
-function squareTabs(w, h, l, r, t, b, ) {
 
-
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var md = sqrt(w * w + h * h + 0 * 0)
     var dx = 1 * md / 20
     var y1 = 0 + b - dx
     var x1 = 0 + r - dx
     return [`M${l},${t}L${dx},${t}L${dx},${dx}L${l},${dx}Z`, `M${l},${y1}L${dx},${y1}L${dx},${b}L${l},${b}Z`, `M${x1},${t}L${r},${t}L${r},${dx}L${x1},${dx}Z`, `M${x1},${y1}L${r},${y1}L${r},${b}L${x1},${b}Z`]
 }
-
-function star10(w, h, l, r, t, b, adj) {
+export function star10(w, h, l, r, t, b, adj) {
     adj = adj || 42533
     hf = hf || 105146
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var swd2 = wd2 * hf / 100000
     var dx1 = swd2 * 95106 / 100000
@@ -5596,21 +4112,11 @@ function star10(w, h, l, r, t, b, adj) {
     var yAdj = vc + 0 - ihd2
     return [`M${x1},${y2}L${sx2},${sy2}L${x2},${y1}L${sx3},${sy1}L${hc},${t}L${sx4},${sy1}L${x3},${y1}L${sx5},${sy2}L${x4},${y2}L${sx6},${vc}L${x4},${y3}L${sx5},${sy3}L${x3},${y4}L${sx4},${sy4}L${hc},${b}L${sx3},${sy4}L${x2},${y4}L${sx2},${sy3}L${x1},${y3}L${sx1},${vc}Z`]
 }
-
-function star12(w, h, l, r, t, b, adj) {
+export function star12(w, h, l, r, t, b, adj) {
     adj = adj || 37500
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var dx1 = max(wd2, 1800000)
     var dy1 = hd2 * sin(3600000)
@@ -5643,21 +4149,11 @@ function star12(w, h, l, r, t, b, adj) {
     var yAdj = vc + 0 - ihd2
     return [`M${l},${vc}L${sx1},${sy3}L${x1},${hd4}L${sx2},${sy2}L${wd4},${y1}L${sx3},${sy1}L${hc},${t}L${sx4},${sy1}L${x3},${y1}L${sx5},${sy2}L${x4},${hd4}L${sx6},${sy3}L${r},${vc}L${sx6},${sy4}L${x4},${y3}L${sx5},${sy5}L${x3},${y4}L${sx4},${sy6}L${hc},${b}L${sx3},${sy6}L${wd4},${y4}L${sx2},${sy5}L${x1},${y3}L${sx1},${sy4}Z`]
 }
-
-function star16(w, h, l, r, t, b, adj) {
+export function star16(w, h, l, r, t, b, adj) {
     adj = adj || 37500
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var dx1 = wd2 * 92388 / 100000
     var dx2 = wd2 * 70711 / 100000
@@ -5712,21 +4208,11 @@ function star16(w, h, l, r, t, b, adj) {
     var yAdj = vc + 0 - ihd2
     return [`M${l},${vc}L${sx1},${sy4}L${x1},${y3}L${sx2},${sy3}L${x2},${y2}L${sx3},${sy2}L${x3},${y1}L${sx4},${sy1}L${hc},${t}L${sx5},${sy1}L${x4},${y1}L${sx6},${sy2}L${x5},${y2}L${sx7},${sy3}L${x6},${y3}L${sx8},${sy4}L${r},${vc}L${sx8},${sy5}L${x6},${y4}L${sx7},${sy6}L${x5},${y5}L${sx6},${sy7}L${x4},${y6}L${sx5},${sy8}L${hc},${b}L${sx4},${sy8}L${x3},${y6}L${sx3},${sy7}L${x2},${y5}L${sx2},${sy6}L${x1},${y4}L${sx1},${sy5}Z`]
 }
-
-function star24(w, h, l, r, t, b, adj) {
+export function star24(w, h, l, r, t, b, adj) {
     adj = adj || 37500
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var dx1 = max(wd2, 900000)
     var dx2 = max(wd2, 1800000)
@@ -5805,21 +4291,11 @@ function star24(w, h, l, r, t, b, adj) {
     var yAdj = vc + 0 - ihd2
     return [`M${l},${vc}L${sx1},${sy6}L${x1},${y5}L${sx2},${sy5}L${x2},${y4}L${sx3},${sy4}L${x3},${y3}L${sx4},${sy3}L${x4},${y2}L${sx5},${sy2}L${x5},${y1}L${sx6},${sy1}L${hc},${t}L${sx7},${sy1}L${x6},${y1}L${sx8},${sy2}L${x7},${y2}L${sx9},${sy3}L${x8},${y3}L${sx10},${sy4}L${x9},${y4}L${sx11},${sy5}L${x10},${y5}L${sx12},${sy6}L${r},${vc}L${sx12},${sy7}L${x10},${y6}L${sx11},${sy8}L${x9},${y7}L${sx10},${sy9}L${x8},${y8}L${sx9},${sy10}L${x7},${y9}L${sx8},${sy11}L${x6},${y10}L${sx7},${sy12}L${hc},${b}L${sx6},${sy12}L${x5},${y10}L${sx5},${sy11}L${x4},${y9}L${sx4},${sy10}L${x3},${y8}L${sx3},${sy9}L${x2},${y7}L${sx2},${sy8}L${x1},${y6}L${sx1},${sy7}Z`]
 }
-
-function star32(w, h, l, r, t, b, adj) {
+export function star32(w, h, l, r, t, b, adj) {
     adj = adj || 37500
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var dx1 = wd2 * 98079 / 100000
     var dx2 = wd2 * 92388 / 100000
@@ -5922,21 +4398,11 @@ function star32(w, h, l, r, t, b, adj) {
     var yAdj = vc + 0 - ihd2
     return [`M${l},${vc}L${sx1},${sy8}L${x1},${y7}L${sx2},${sy7}L${x2},${y6}L${sx3},${sy6}L${x3},${y5}L${sx4},${sy5}L${x4},${y4}L${sx5},${sy4}L${x5},${y3}L${sx6},${sy3}L${x6},${y2}L${sx7},${sy2}L${x7},${y1}L${sx8},${sy1}L${hc},${t}L${sx9},${sy1}L${x8},${y1}L${sx10},${sy2}L${x9},${y2}L${sx11},${sy3}L${x10},${y3}L${sx12},${sy4}L${x11},${y4}L${sx13},${sy5}L${x12},${y5}L${sx14},${sy6}L${x13},${y6}L${sx15},${sy7}L${x14},${y7}L${sx16},${sy8}L${r},${vc}L${sx16},${sy9}L${x14},${y8}L${sx15},${sy10}L${x13},${y9}L${sx14},${sy11}L${x12},${y10}L${sx13},${sy12}L${x11},${y11}L${sx12},${sy13}L${x10},${y12}L${sx11},${sy14}L${x9},${y13}L${sx10},${sy15}L${x8},${y14}L${sx9},${sy16}L${hc},${b}L${sx8},${sy16}L${x7},${y14}L${sx7},${sy15}L${x6},${y13}L${sx6},${sy14}L${x5},${y12}L${sx5},${sy13}L${x4},${y11}L${sx4},${sy12}L${x3},${y10}L${sx3},${sy11}L${x2},${y9}L${sx2},${sy10}L${x1},${y8}L${sx1},${sy9}Z`]
 }
-
-function star4(w, h, l, r, t, b, adj) {
+export function star4(w, h, l, r, t, b, adj) {
     adj = adj || 12500
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var iwd2 = wd2 * a / 50000
     var ihd2 = hd2 * a / 50000
@@ -5949,23 +4415,13 @@ function star4(w, h, l, r, t, b, adj) {
     var yAdj = vc + 0 - ihd2
     return [`M${l},${vc}L${sx1},${sy1}L${hc},${t}L${sx2},${sy1}L${r},${vc}L${sx2},${sy2}L${hc},${b}L${sx1},${sy2}Z`]
 }
-
-function star5(w, h, l, r, t, b, adj) {
+export function star5(w, h, l, r, t, b, adj) {
     adj = adj || 19098
     hf = hf || 105146
     vf = vf || 110557
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var swd2 = wd2 * hf / 100000
     var shd2 = hd2 * vf / 100000
@@ -5996,22 +4452,12 @@ function star5(w, h, l, r, t, b, adj) {
     var yAdj = svc + 0 - ihd2
     return [`M${x1},${y1}L${sx2},${sy1}L${hc},${t}L${sx3},${sy1}L${x4},${y1}L${sx4},${sy2}L${x3},${y2}L${hc},${sy3}L${x2},${y2}L${sx1},${sy2}Z`]
 }
-
-function star6(w, h, l, r, t, b, adj) {
+export function star6(w, h, l, r, t, b, adj) {
     adj = adj || 28868
     hf = hf || 115470
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var swd2 = wd2 * hf / 100000
     var dx1 = max(swd2, 1800000)
@@ -6031,23 +4477,13 @@ function star6(w, h, l, r, t, b, adj) {
     var yAdj = vc + 0 - ihd2
     return [`M${x1},${hd4}L${sx2},${sy1}L${hc},${t}L${sx3},${sy1}L${x2},${hd4}L${sx4},${vc}L${x2},${y2}L${sx3},${sy2}L${hc},${b}L${sx2},${sy2}L${x1},${y2}L${sx1},${vc}Z`]
 }
-
-function star7(w, h, l, r, t, b, adj) {
+export function star7(w, h, l, r, t, b, adj) {
     adj = adj || 34601
     hf = hf || 102572
     vf = vf || 105210
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var swd2 = wd2 * hf / 100000
     var shd2 = hd2 * vf / 100000
@@ -6088,21 +4524,11 @@ function star7(w, h, l, r, t, b, adj) {
     var yAdj = svc + 0 - ihd2
     return [`M${x1},${y2}L${sx1},${sy2}L${x2},${y1}L${sx3},${sy1}L${hc},${t}L${sx4},${sy1}L${x5},${y1}L${sx6},${sy2}L${x6},${y2}L${sx5},${sy3}L${x4},${y3}L${hc},${sy4}L${x3},${y3}L${sx2},${sy3}Z`]
 }
-
-function star8(w, h, l, r, t, b, adj) {
+export function star8(w, h, l, r, t, b, adj) {
     adj = adj || 37500
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 50000 ? 50000 : adj)
     var dx1 = max(wd2, 2700000)
     var x1 = hc + 0 - dx1
@@ -6127,28 +4553,17 @@ function star8(w, h, l, r, t, b, adj) {
     var yAdj = vc + 0 - ihd2
     return [`M${l},${vc}L${sx1},${sy2}L${x1},${y1}L${sx2},${sy1}L${hc},${t}L${sx3},${sy1}L${x2},${y1}L${sx4},${sy2}L${r},${vc}L${sx4},${sy3}L${x2},${y2}L${sx3},${sy4}L${hc},${b}L${sx2},${sy4}L${x1},${y2}L${sx1},${sy3}Z`]
 }
-
-function straightConnector1(w, h, l, r, t, b, ) {
+export function straightConnector1(w, h, l, r, t, b, ) {
 
     // no guides
     return [`M${l},${t}L${r},${b}`]
 }
-
-function stripedRightArrow(w, h, l, r, t, b, adj1, adj2) {
+export function stripedRightArrow(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 50000
     adj2 = adj2 || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj2 = 84375 * w / ss
     var a1 = adj1 < 0 ? 0 : (adj1 > 100000 ? 100000 : adj1)
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
@@ -6162,21 +4577,11 @@ function stripedRightArrow(w, h, l, r, t, b, adj1, adj2) {
     var x6 = r + 0 - dx6
     return [`M${l},${y1}L${ssd32},${y1}L${ssd32},${y2}L${l},${y2}ZM${ssd16},${y1}L${ssd8},${y1}L${ssd8},${y2}L${ssd16},${y2}ZM${x4},${y1}L${x5},${y1}L${x5},${t}L${r},${vc}L${x5},${b}L${x5},${y2}L${x4},${y2}Z`]
 }
-
-function sun(w, h, l, r, t, b, adj) {
+export function sun(w, h, l, r, t, b, adj) {
     adj = adj || 25000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 12500 ? 12500 : (adj > 46875 ? 46875 : adj)
     var g0 = 50000 + 0 - a
     var g1 = g0 * 30274 / 32768
@@ -6226,22 +4631,12 @@ function sun(w, h, l, r, t, b, adj) {
     var y18 = h * g18 / 100000
     return [`M${r},${vc}L${x15},${y18}L${x15},${y14}ZM${ox1},${oy1}L${x16},${y13}L${x17},${y12}ZM${hc},${t}L${x18},${y10}L${x14},${y10}ZM${ox2},${oy1}L${x13},${y12}L${x12},${y13}ZM${l},${vc}L${x10},${y14}L${x10},${y18}ZM${ox2},${oy2}L${x12},${y17}L${x13},${y16}ZM${hc},${b}L${x14},${y15}L${x18},${y15}ZM${ox1},${oy2}L${x17},${y16}L${x16},${y17}ZM${x19},${vc}Z`]
 }
-
-function swooshArrow(w, h, l, r, t, b, adj1, adj2) {
+export function swooshArrow(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 25000
     adj2 = adj2 || 16667
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 1 ? 1 : (adj1 > 75000 ? 75000 : adj1)
     var maxAdj2 = 70000 * w / ss
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
@@ -6269,21 +4664,11 @@ function swooshArrow(w, h, l, r, t, b, adj1, adj2) {
     var xP2 = wd4
     return [`M${l},${b}ZL${xC},${t}L${r},${yD}L${xE},${yE}L${xF},${yF}ZZ`]
 }
-
-function teardrop(w, h, l, r, t, b, adj) {
+export function teardrop(w, h, l, r, t, b, adj) {
     adj = adj || 100000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 200000 ? 200000 : adj)
     var r2 = sqrt(2)
     var tw = wd2 * r2 / 1
@@ -6304,21 +4689,11 @@ function teardrop(w, h, l, r, t, b, adj) {
     var ib = vc + idy - 0
     return [`M${l},${vc}ZZZ`]
 }
-
-function trapezoid(w, h, l, r, t, b, adj) {
+export function trapezoid(w, h, l, r, t, b, adj) {
     adj = adj || 25000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj = 50000 * w / ss
     var a = adj < 0 ? 0 : (adj > maxAdj ? maxAdj : adj)
     var x1 = ss * a / 200000
@@ -6330,45 +4705,25 @@ function trapezoid(w, h, l, r, t, b, adj) {
     var ir = r + 0 - il
     return [`M${l},${b}L${x2},${t}L${x3},${t}L${r},${b}Z`]
 }
-
-function triangle(w, h, l, r, t, b, adj) {
+export function triangle(w, h, l, r, t, b, adj) {
     adj = adj || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 100000 ? 100000 : adj)
     var x1 = w * a / 200000
     var x2 = w * a / 100000
     var x3 = x1 + wd2 - 0
     return [`M${l},${b}L${x2},${t}L${r},${b}Z`]
 }
-
-function upArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
+export function upArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
     adj1 = adj1 || 25000
     adj2 = adj2 || 25000
     adj3 = adj3 || 25000
     adj4 = adj4 || 64977
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj2 = 50000 * w / ss
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
     var maxAdj1 = a2 * 2 / 1
@@ -6390,22 +4745,12 @@ function upArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
     var y3 = y2 + b / 2
     return [`M${l},${y2}L${x2},${y2}L${x2},${y1}L${x1},${y1}L${hc},${t}L${x4},${y1}L${x3},${y1}L${x3},${y2}L${r},${y2}L${r},${b}L${l},${b}Z`]
 }
-
-function upDownArrow(w, h, l, r, t, b, adj1, adj2) {
+export function upDownArrow(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 50000
     adj2 = adj2 || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj2 = 50000 * h / ss
     var a1 = adj1 < 0 ? 0 : (adj1 > 100000 ? 100000 : adj1)
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
@@ -6419,22 +4764,12 @@ function upDownArrow(w, h, l, r, t, b, adj1, adj2) {
     var y4 = y3 + dy1 - 0
     return [`M${l},${y2}L${hc},${t}L${r},${y2}L${x2},${y2}L${x2},${y3}L${r},${y3}L${hc},${b}L${l},${y3}L${x1},${y3}L${x1},${y2}Z`]
 }
-
-function upDownArrow(w, h, l, r, t, b, adj1, adj2) {
+export function upDownArrow(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 50000
     adj2 = adj2 || 50000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj2 = 50000 * h / ss
     var a1 = adj1 < 0 ? 0 : (adj1 > 100000 ? 100000 : adj1)
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
@@ -6448,24 +4783,14 @@ function upDownArrow(w, h, l, r, t, b, adj1, adj2) {
     var y4 = y3 + dy1 - 0
     return [`M${l},${y2}L${hc},${t}L${r},${y2}L${x2},${y2}L${x2},${y3}L${r},${y3}L${hc},${b}L${l},${y3}L${x1},${y3}L${x1},${y2}Z`]
 }
-
-function upDownArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
+export function upDownArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
     adj1 = adj1 || 25000
     adj2 = adj2 || 25000
     adj3 = adj3 || 25000
     adj4 = adj4 || 48123
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var maxAdj2 = 50000 * w / ss
     var a2 = adj2 < 0 ? 0 : (adj2 > maxAdj2 ? maxAdj2 : adj2)
     var maxAdj1 = a2 * 2 / 1
@@ -6488,8 +4813,7 @@ function upDownArrowCallout(w, h, l, r, t, b, adj1, adj2, adj3, adj4) {
     var y3 = vc + dy2 - 0
     return [`M${l},${y2}L${x2},${y2}L${x2},${y1}L${x1},${y1}L${hc},${t}L${x4},${y1}L${x3},${y1}L${x3},${y2}L${r},${y2}L${r},${y3}L${x3},${y3}L${x3},${y4}L${x4},${y4}L${hc},${b}L${x1},${y4}L${x2},${y4}L${x2},${y3}L${l},${y3}Z`]
 }
-
-function uturnArrow(w, h, l, r, t, b, adj1, adj2, adj3, adj4, adj5) {
+export function uturnArrow(w, h, l, r, t, b, adj1, adj2, adj3, adj4, adj5) {
     adj1 = adj1 || 25000
     adj2 = adj2 || 25000
     adj3 = adj3 || 25000
@@ -6497,16 +4821,7 @@ function uturnArrow(w, h, l, r, t, b, adj1, adj2, adj3, adj4, adj5) {
     adj5 = adj5 || 75000
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a2 = adj2 < 0 ? 0 : (adj2 > 25000 ? 25000 : adj2)
     var maxAdj1 = a2 * 2 / 1
     var a1 = adj1 < 0 ? 0 : (adj1 > maxAdj1 ? maxAdj1 : adj1)
@@ -6541,21 +4856,11 @@ function uturnArrow(w, h, l, r, t, b, adj1, adj2, adj3, adj4, adj5) {
     var cx = th + x7 / 2
     return [`M${l},${b}L${l},${bd}L${x4},${t}L${x9},${y4}L${r},${y4}L${x8},${y5}L${x6},${y4}L${x7},${y4}L${x7},${x3}L${x3},${th}L${th},${b}Z`]
 }
-
-function verticalScroll(w, h, l, r, t, b, adj) {
+export function verticalScroll(w, h, l, r, t, b, adj) {
     adj = adj || 12500
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a = adj < 0 ? 0 : (adj > 25000 ? 25000 : adj)
     var ch = ss * a / 100000
     var ch2 = ch * 1 / 2
@@ -6569,22 +4874,12 @@ function verticalScroll(w, h, l, r, t, b, adj) {
     var y4 = b + 0 - ch2
     return [`M${ch2},${b}L${ch2},${y4}L${ch},${y3}L${ch},${ch2}L${x7},${t}L${x6},${ch}L${x6},${y4}ZM${x4},${ch2}Z`, `M${x4},${ch2}ZM${ch},${y4}Z`, `M${ch},${y3}L${ch},${ch2}L${x7},${t}L${x6},${ch}L${x6},${y4}L${ch2},${b}ZM${x3},${t}L${x4},${ch2}M${x6},${ch}L${x3},${ch}M${ch2},${y3}L${ch},${y4}M${ch2},${b}L${ch},${y3}`]
 }
-
-function wave(w, h, l, r, t, b, adj1, adj2) {
+export function wave(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || 12500
     adj2 = adj2 || 0
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var a1 = adj1 < 0 ? 0 : (adj1 > 20000 ? 20000 : adj1)
     var a2 = adj2 < -10000 ? -10000 : (adj2 > 10000 ? 10000 : adj2)
     var y1 = h * a1 / 100000
@@ -6617,22 +4912,12 @@ function wave(w, h, l, r, t, b, adj1, adj2) {
     var ib = b + 0 - it
     return [`M${x2},${y1}ZL${x10},${y4}ZZ`]
 }
-
-function wedgeEllipseCallout(w, h, l, r, t, b, adj1, adj2) {
+export function wedgeEllipseCallout(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || -20833
     adj2 = adj2 || 62500
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var dxPos = w * adj1 / 100000
     var dyPos = h * adj2 / 100000
     var xPos = hc + dxPos - 0
@@ -6663,22 +4948,12 @@ function wedgeEllipseCallout(w, h, l, r, t, b, adj1, adj2) {
     var ib = vc + idy - 0
     return [`M${xPos},${yPos}L${x1},${y1}Z`]
 }
-
-function wedgeRectCallout(w, h, l, r, t, b, adj1, adj2) {
+export function wedgeRectCallout(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || -20833
     adj2 = adj2 || 62500
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var dxPos = w * adj1 / 100000
     var dyPos = h * adj2 / 100000
     var xPos = hc + dxPos - 0
@@ -6715,23 +4990,13 @@ function wedgeRectCallout(w, h, l, r, t, b, adj1, adj2) {
     var yb = dz > 0 ? t8 : b
     return [`M${l},${t}L${x1},${t}L${xt},${yt}L${x2},${t}L${r},${t}L${r},${y1}L${xr},${yr}L${r},${y2}L${r},${b}L${x2},${b}L${xb},${yb}L${x1},${b}L${l},${b}L${l},${y2}L${xl},${yl}L${l},${y1}Z`]
 }
-
-function wedgeRoundRectCallout(w, h, l, r, t, b, adj1, adj2) {
+export function wedgeRoundRectCallout(w, h, l, r, t, b, adj1, adj2) {
     adj1 = adj1 || -20833
     adj2 = adj2 || 62500
     adj3 = adj3 || 16667
 
 
-    var cos = Math.cos.bind(Math)
-    var sin = Math.sin.bind(Math)
-    var abs = Math.abs.bind(Math)
-    var atan = Math.atan.bind(Math)
-    var atan2 = Math.atan2.bind(Math)
-    var max = Math.max.bind(Math)
-    var min = Math.min.bind(Math)
-    var sqrt = Math.sqrt.bind(Math)
     var ss = w < h ? w : h
-
     var dxPos = w * adj1 / 100000
     var dyPos = h * adj2 / 100000
     var xPos = hc + dxPos - 0
