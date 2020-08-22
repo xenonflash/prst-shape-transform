@@ -22,6 +22,7 @@ const shapeDefs = result.children[0].children
 
 const helperFunctions = `
 import arcToPathA from './arcToPathA'
+
 const cos = Math.cos.bind(Math)
 const sin = Math.sin.bind(Math)
 const abs = Math.abs.bind(Math)
@@ -30,6 +31,7 @@ const atan2 = Math.atan2.bind(Math)
 const max = Math.max.bind(Math)
 const min = Math.min.bind(Math)
 const sqrt = Math.sqrt.bind(Math)
+const pi = Math.PI
 `
 let functionTexts = ""
 const CD_REG = /(\d*)cd(\d*)/i
@@ -177,16 +179,14 @@ function parseFmla(fmlaStr) {
             return `atan2(${x}, ${y})` //TODO 可能有问题
         case 'cat2':
             return `${x} * (cos(atan(${z} / ${y})))`
-        case 'cos':
-            return `max(${x}, ${y})`
-        case 'cos':
-            return `min(${x}, ${y})`
         case 'mod':
             return `sqrt(${x} * ${x} + ${y} * ${y} + ${z} * ${z})`
         case 'sat2':
             return `${x} * sin(atan(${z} / ${y}))`
         case 'sin':
-            return `${x} * sin(${y})`
+            return `${x} * sin(${180 / (y / 60000) * pi})`
+        case 'cos':
+            return `${x} * cos(${180 / (y / 60000) * pi})`
         case 'sqrt':
             return `sqrt(${x})`
         case 'tan':
