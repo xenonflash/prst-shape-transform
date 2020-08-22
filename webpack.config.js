@@ -1,10 +1,8 @@
 const path = require('path')
 const _rs = p => path.resolve(__dirname, p)
 
-
 module.exports = {
-  entry: _rs('src/index.js'),
-  target: "node",
+  entry: _rs('tmp/index.js'),
   mode: "development",
   output: {
     path: _rs('dist'),

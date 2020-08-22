@@ -25,7 +25,7 @@
     "webpack-cli": "^3.3.10"
   },
   "scripts": {
-    "start": "webpack --config=webpack.config.js && node dist/index.js"
+    "start": "npx babel src --out-dir tmp && node tmp index.js"
   },
   "keywords": [
     "ECMA-376"

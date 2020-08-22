@@ -5,8 +5,8 @@ const _isEmpty = require('lodash/isEmpty')
 var convert = require('xml-js');
 var beautify = require('js-beautify').js
 
-const xml = fs.readFileSync(rs('src/presetShapeDefinitions.xml'))
-// const xml = fs.readFileSync(rs('src/round-rect.xml'))
+// const xml = fs.readFileSync(rs('src/presetShapeDefinitions.xml'))
+const xml = fs.readFileSync(rs('src/round-rect.xml'))
 var options = {
     ignoreComment: true,
     // alwaysChildren: true,
@@ -15,18 +15,18 @@ var options = {
     elementsKey: 'children',
 };
 var result = convert.xml2js(xml, options); // or convert.xml2json(xml, options)
-fs.writeFileSync('./result.json', JSON.stringify(result))
+fs.writeFileSync('./tmp/result.json', JSON.stringify(result))
 const shapeDefs = result.children[0].children
 
 const helperFunctions = `
-var cos = Math.cos.bind(Math)
-var sin = Math.sin.bind(Math)
-var abs = Math.abs.bind(Math)
-var atan = Math.atan.bind(Math)
-var atan2 = Math.atan2.bind(Math)
-var max = Math.max.bind(Math)
-var min = Math.min.bind(Math)
-var sqrt = Math.sqrt.bind(Math)
+const cos = Math.cos.bind(Math)
+const sin = Math.sin.bind(Math)
+const abs = Math.abs.bind(Math)
+const atan = Math.atan.bind(Math)
+const atan2 = Math.atan2.bind(Math)
+const max = Math.max.bind(Math)
+const min = Math.min.bind(Math)
+const sqrt = Math.sqrt.bind(Math)
 `
 let functionTexts = ""
 for (let shapeDef of shapeDefs) {
@@ -41,7 +41,6 @@ for (let shapeDef of shapeDefs) {
     res += '){\n'
     const defaultParams = parseAvList(avLst)
     res += defaultParams
-    res += '\n'
     const logic = parseGuides(gdLst)
     res += logic
     const paths = parsePath(pathLst)
@@ -49,7 +48,7 @@ for (let shapeDef of shapeDefs) {
     res += '}\n'
     functionTexts += res
 }
-fs.writeFileSync('./shape-functions.js', beautify(helperFunctions + functionTexts))
+fs.writeFileSync('./dist/index.js', beautify(helperFunctions + functionTexts))
 /**
  * 返回 参数列表
  */
@@ -76,11 +75,11 @@ function parseGuides(gdList) {
     let gds = _get(gdList, 'children')
     if (_isEmpty(gds)) return '// no guides'
     let res = `
-    var ss = w < h ? w : h
+    const ss = w < h ? w : h
     `
     const expressions = gds.map(gd => {
         const { name, fmla } = gd.attrs
-        let exp = `var ${name} = ${parseFmla(fmla)}`
+        let exp = `const ${name} = ${parseFmla(fmla)}`
         return exp
     })
     return res + expressions.join('\n')
@@ -103,9 +102,11 @@ function parsePath(pathList) {
                 }
                 case 'arcTo': {
                     console.log('arc', directive)
-                    // const { wR, hR, stAng, swAng } = path.attrs
+                    const { wR, hR, stAng, swAng } = directive.attrs
                     // TODO 转换
-                    // pathStr += `A${},${y},${},${},${},${}`
+                    const endX = ''
+                    const endY = ''
+                    pathStr += `A\$\{${wR}\},\$\{${hR}\},0,0,1,\$\{${endX}\},$\{${endY}\}`
                     break
                 }
                 case 'quadBezTo': {
