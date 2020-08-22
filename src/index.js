@@ -21,6 +21,7 @@ fs.writeFileSync('./tmp/result.json', JSON.stringify(result))
 const shapeDefs = result.children[0].children
 
 const helperFunctions = `
+import arcToPathA from './arcToPathA'
 const cos = Math.cos.bind(Math)
 const sin = Math.sin.bind(Math)
 const abs = Math.abs.bind(Math)
@@ -121,19 +122,7 @@ function parsePath(pathList) {
                 }
                 case 'arcTo': {
                     let { wR, hR, stAng, swAng } = directive.attrs
-                    // TODO 根据 startAng 和 swingAng 计算 圆弧参数
-                    // 1. 计算 椭圆线段 开始的 x1 y1 和结束的 x2 y2
-                    // 2. 计算 x1 y1 处切线角度
-                    // 3. 根据切线角度对椭圆以椭圆中心为原点进行 旋转变换
-                    // 4. 根据旋转后的 x1 和 y1，对椭圆进行平移变换，使 x1 y1 和 起点重合（起点为上一个指令的结束点 或者 0 0 ， 如果上一个指令是圆弧？？？）
-                    // 5. 得到平移变换后 x2 y2 的坐标，赋值给endX， endY
-                    stAng = normalizeAng(stAng)
-                    swAng = normalizeAng(swAng)
-                    console.log(wR, hR, stAng, swAng)
-                    const endX = ''
-                    const endY = ''
-                    const rotate = ''
-                    pathStr += `A\$\{${wR}\},\$\{${hR}\},0,0,1,\$\{${endX}\},$\{${endY}\}`
+                    pathStr += `\$\{arcToPathA(${wR}, ${hR}, ${normalizeAng(stAng)}, ${normalizeAng(swAng)})\}`
                     break
                 }
                 case 'quadBezTo': {
@@ -167,9 +156,12 @@ function parseAvList(avList) {
 // 解析一条 公式
 function parseFmla(fmlaStr) {
     let [op, x, y, z] = fmlaStr.split(' ')
-    if (/^\d/.test(x)) x = '_' + x
-    if (/^\d/.test(y)) y = '_' + y
-    if (/^\d/.test(z)) z = '_' + z
+    if (/^\d+[a-z]/.test(x)) x = '_' + x
+    if (/^\d+[a-z]/.test(y)) y = '_' + y
+    if (/^\d+[a-z]/.test(z)) z = '_' + z
+    x = normalizeAng(x)
+    y = normalizeAng(y)
+    z = normalizeAng(z)
     switch (op) {
         case 'pin':
             return `${y} < ${x} ? ${x} : (${y} > ${z} ? ${z} : ${y})`
@@ -210,16 +202,13 @@ function parseFmla(fmlaStr) {
             return ''
     }
 }
-
-function normalizeAng(angStr) {
-    if (CD_REG.test(angStr)) {
-        let [_, times, ratio] = angStr.match(CD_REG)
+function normalizeAng(str) {
+    if (CD_REG.test(str)) {
+        let [ _, times, ratio ] = str.match(CD_REG)
         times = times || 1
         ratio = ratio || 1
-        return 360 * 60000 / ratio * times
-    } else {
-        return angStr
-    }
+        return 360 / ratio * times * 60000
+    } return str
 }
 function arrailize(obj) {
     if (obj === undefined || obj === null) return []
