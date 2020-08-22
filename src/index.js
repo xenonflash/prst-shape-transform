@@ -3,10 +3,12 @@ const rs = require('path').resolve
 const _get = require('lodash/get')
 const _isEmpty = require('lodash/isEmpty')
 var convert = require('xml-js');
+const { normalize } = require('path');
 var beautify = require('js-beautify').js
 
-// const xml = fs.readFileSync(rs('src/presetShapeDefinitions.xml'))
-const xml = fs.readFileSync(rs('src/round-rect.xml'))
+
+const xml = fs.readFileSync(rs('src/presetShapeDefinitions.xml'))
+// const xml = fs.readFileSync(rs('src/round-rect.xml'))
 var options = {
     ignoreComment: true,
     // alwaysChildren: true,
@@ -29,12 +31,14 @@ const min = Math.min.bind(Math)
 const sqrt = Math.sqrt.bind(Math)
 `
 let functionTexts = ""
+const CD_REG = /(\d*)cd(\d*)/i
 for (let shapeDef of shapeDefs) {
     let res = `export function ${shapeDef.name}(w,h,l,r,t,b,`
     // 解析一条
     const { avLst, gdLst, ahLst, cxnLst, rect, pathLst } = shapeDef.children.reduce((accum, item) => {
         accum[item.name] = item
         return accum
+
     }, {})
     const params = parseAhList(ahLst)
     res += params
@@ -78,7 +82,8 @@ function parseGuides(gdList) {
     const ss = w < h ? w : h
     `
     const expressions = gds.map(gd => {
-        const { name, fmla } = gd.attrs
+        let { name, fmla } = gd.attrs
+        if (/^\d/.test(name)) name = '_' + name
         let exp = `const ${name} = ${parseFmla(fmla)}`
         return exp
     })
@@ -86,6 +91,7 @@ function parseGuides(gdList) {
 }
 function parsePath(pathList) {
     const paths = _get(pathList, 'children', [])
+    
     const res = paths.map(path => {
         let pathStr = ""
         path.children.forEach(directive => {
@@ -101,26 +107,34 @@ function parsePath(pathList) {
                     break
                 }
                 case 'arcTo': {
-                    console.log('arc', directive)
-                    const { wR, hR, stAng, swAng } = directive.attrs
-                    // TODO 转换
+                    let { wR, hR, stAng, swAng } = directive.attrs
+                    // TODO 根据 startAng 和 swingAng 计算 圆弧参数
+                    // 1. 计算 椭圆线段 开始的 x1 y1 和结束的 x2 y2
+                    // 2. 计算 x1 y1 处切线角度
+                    // 3. 根据切线角度对椭圆以椭圆中心为原点进行 旋转变换
+                    // 4. 根据旋转后的 x1 和 y1，对椭圆进行平移变换，使 x1 y1 和 起点重合（起点为上一个指令的结束点 或者 0 0 ， 如果上一个指令是圆弧？？？）
+                    // 5. 得到平移变换后 x2 y2 的坐标，赋值给endX， endY
+                    stAng = normalizeAng(stAng)
+                    swAng = normalizeAng(swAng)
+                    console.log(wR, hR, stAng, swAng)
                     const endX = ''
                     const endY = ''
+                    const rotate = ''
                     pathStr += `A\$\{${wR}\},\$\{${hR}\},0,0,1,\$\{${endX}\},$\{${endY}\}`
                     break
                 }
                 case 'quadBezTo': {
-                    console.log('not supported', directive)
+                    // console.log('not supported', directive)
                 }
                 case 'cubicBezTo': {
-                    console.log('not suppored', directive)
+                    // console.log('not suppored', directive)
                 }
                 case 'close': {
                     pathStr += 'Z'
                     break
                 }
                 default:
-                    console.log('not supported', directive)
+                    // console.log('not supported', directive)
                     break
             }
         })
@@ -139,7 +153,10 @@ function parseAvList(avList) {
 
 // 解析一条 公式
 function parseFmla(fmlaStr) {
-    const [op, x, y, z] = fmlaStr.split(' ')
+    let [op, x, y, z] = fmlaStr.split(' ')
+    if (/^\d/.test(x)) x = '_' + x
+    if (/^\d/.test(y)) y = '_' + y
+    if (/^\d/.test(z)) z = '_' + z
     switch (op) {
         case 'pin':
             return `${y} < ${x} ? ${x} : (${y} > ${z} ? ${z} : ${y})`
@@ -178,6 +195,17 @@ function parseFmla(fmlaStr) {
         default:
             console.log('not supported op', op, x, y, z)
             return ''
+    }
+}
+
+function normalizeAng(angStr) {
+    if (CD_REG.test(angStr)) {
+        let [_, times, ratio] = angStr.match(CD_REG)
+        times = times || 1
+        ratio = ratio || 1
+        return 360 * 60000 / ratio * times
+    } else {
+        return angStr
     }
 }
 function arrailize(obj) {
