@@ -94,15 +94,28 @@ function parsePath(pathList) {
     
     const res = paths.map(path => {
         let pathStr = ""
+        const { w: wRatio, h: hRatio } = path.attrs || {}
         path.children.forEach(directive => {
             switch (directive.name) {
                 case 'moveTo': {
-                    const { x, y } = directive.children[0].attrs
+                    let { x, y } = directive.children[0].attrs
+                    if (wRatio) {
+                        x = x == 0 ? 0 : `${x} * w / ${wRatio}`
+                    }
+                    if (hRatio) {
+                        y = y == 0 ? 0 : `${y} * w / ${hRatio}`
+                    }
                     pathStr += `M\$\{${x}\},\$\{${y}\}`
                     break
                 }
                 case 'lnTo': {
-                    const { x, y } = directive.children[0].attrs
+                    let { x, y } = directive.children[0].attrs
+                    if (wRatio) {
+                        x = x === 0 ? 0 : `${x} * w / ${wRatio}`
+                    }
+                    if (hRatio) {
+                        y = y === 0 ? 0 : `${y} * w / ${hRatio}`
+                    }
                     pathStr += `L\$\{${x}\},\$\{${y}\}`
                     break
                 }
