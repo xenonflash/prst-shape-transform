@@ -5,9 +5,8 @@ const _isEmpty = require('lodash/isEmpty')
 var convert = require('xml-js');
 var beautify = require('js-beautify').js
 
-
-// const xml = fs.readFileSync(rs('src/presetShapeDefinitions.xml'))
-const xml = fs.readFileSync(rs('src/simple.xml'))
+const xml = fs.readFileSync(rs('src/presetShapeDefinitions.xml'))
+// const xml = fs.readFileSync(rs('src/simple.xml'))
 var options = {
     ignoreComment: true,
     // alwaysChildren: true,
@@ -34,8 +33,13 @@ const pi = Math.PI
 `
 let functionTexts = ""
 const CD_REG = /(\d*)cd(\d*)/i
+
 for (let shapeDef of shapeDefs) {
-    let res = `export function ${shapeDef.name}(w,h,`
+    if (functionTexts.includes(`function ${shapeDef.name} `)) {
+        console.log('重复定义')
+        continue
+    }
+    let res = `export function ${shapeDef.name} (w,h,`
     // 解析一条
     const { avLst, gdLst, ahLst, cxnLst, rect, pathLst } = shapeDef.children.reduce((accum, item) => {
         accum[item.name] = item
@@ -91,13 +95,25 @@ function parseGuides(gdList) {
     let res = `
     const ss = w < h ? w : h
     `
-    const expressions = gds.map(gd => {
+    const expressions = []
+    gds.map(gd => {
         let { name, fmla } = gd.attrs
         if (/^\d/.test(name)) name = '_' + name
-        let exp = `const ${name} = ${parseFmla(fmla)}`
-        return exp
+        expressions.push({
+            reAssign: !!expressions.find(item => item.valName === name),
+            valName: name,
+            exp: parseFmla(fmla)
+        })
     })
-    return res + expressions.join('\n')
+    return res + expressions.map(item => {
+        let code = `${item.valName} = ${item.exp}`
+        if (!item.reAssign) {
+            code = 'let ' + code
+        } else {
+            console.log('reassign', item)
+        }
+        return code
+    }).join('\n')
 }
 function parsePath(pathList) {
     const paths = _get(pathList, 'children', [])
@@ -180,7 +196,7 @@ function parseAvList(avList) {
 
 // 解析一条 公式
 function parseFmla(fmlaStr) {
-    let [op, x, y, z] = fmlaStr.split(' ')
+    let [op, x, y, z] = fmlaStr.split(/\s+/)
     if (/^\d+[a-z]/.test(x)) x = '_' + x
     if (/^\d+[a-z]/.test(y)) y = '_' + y
     if (/^\d+[a-z]/.test(z)) z = '_' + z
@@ -209,7 +225,7 @@ function parseFmla(fmlaStr) {
         case 'sin':
             return `${x} * sin((${y} / 60000) / 180 * pi)`
         case 'cos':
-            return `${x} * cos(${y} / 60000) / 180 * pi)`
+            return `${x} * cos((${y} / 60000) / 180 * pi)`
         case 'sqrt':
             return `sqrt(${x})`
         case 'tan':
