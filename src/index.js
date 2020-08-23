@@ -7,7 +7,7 @@ var beautify = require('js-beautify').js
 
 
 // const xml = fs.readFileSync(rs('src/presetShapeDefinitions.xml'))
-const xml = fs.readFileSync(rs('src/round-rect.xml'))
+const xml = fs.readFileSync(rs('src/simple.xml'))
 var options = {
     ignoreComment: true,
     // alwaysChildren: true,
@@ -35,7 +35,7 @@ const pi = Math.PI
 let functionTexts = ""
 const CD_REG = /(\d*)cd(\d*)/i
 for (let shapeDef of shapeDefs) {
-    let res = `export function ${shapeDef.name}(w,h,l,r,t,b,`
+    let res = `export function ${shapeDef.name}(w,h,`
     // 解析一条
     const { avLst, gdLst, ahLst, cxnLst, rect, pathLst } = shapeDef.children.reduce((accum, item) => {
         accum[item.name] = item
@@ -47,6 +47,14 @@ for (let shapeDef of shapeDefs) {
     res += '){\n'
     const defaultParams = parseAvList(avLst)
     res += defaultParams
+    res += `
+        const l = 0
+        const t = 0
+        const r = w
+        const b = h
+        const wd2 = w / 2 //猜的
+        const hd2 = h / 2 //猜的
+    `
     const logic = parseGuides(gdLst)
     res += logic
     const paths = parsePath(pathLst)

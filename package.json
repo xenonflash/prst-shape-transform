@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "cross-env BABEL_ENV=node npx babel src --out-dir tmp && node tmp index.js",
-    "build": "cross-env BABEL_ENV=browser npm run start start && webpack --config=webpack.config.js"
+    "build": "cross-env BABEL_ENV=browser npm run start && webpack --config=webpack.config.js"
   },
   "keywords": [
     "ECMA-376"
