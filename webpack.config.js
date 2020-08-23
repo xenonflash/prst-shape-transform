@@ -3,7 +3,7 @@ const _rs = p => path.resolve(__dirname, p)
 
 module.exports = {
   entry: _rs('tmp/index.js'),
-  mode: "development",
+  mode: "production",
   output: {
     path: _rs('dist'),
     filename: `index.js`,
