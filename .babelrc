@@ -1,16 +1,45 @@
 {
-  "presets": [
-      [
-          "@babel/preset-env",{
-            "targets" : {
-                "node": "6.0.0"
-            }
-          }
-      ],
-  ],
-  "plugins": [
-      ["@babel/plugin-transform-runtime", {
-          "corejs": 3 // 可选 false | 2 | 3
-      }]
-  ]
+    "env": {
+        "node": {
+            "presets": [
+                [
+                    "@babel/preset-env",
+                    {
+                        "targets": {
+                            "node": "6.0.0"
+                        }
+                    }
+                ],
+            ],
+            "plugins": [
+                [
+                    "@babel/plugin-transform-runtime",
+                    {
+                        "corejs": 3 // 可选 false | 2 | 3
+                    }
+                ]
+            ]
+        },
+        "browser": {
+            "presets": [
+                [
+                    "@babel/preset-env",
+                    {
+                        "targets": {
+                            "chrome": "58",
+                            "ie": "11"
+                        }
+                    }
+                ],
+            ],
+            "plugins": [
+                [
+                    "@babel/plugin-transform-runtime",
+                    {
+                        "corejs": 3 // 可选 false | 2 | 3
+                    }
+                ]
+            ]
+        }
+    }
 }

@@ -3,12 +3,11 @@ const rs = require('path').resolve
 const _get = require('lodash/get')
 const _isEmpty = require('lodash/isEmpty')
 var convert = require('xml-js');
-const { normalize } = require('path');
 var beautify = require('js-beautify').js
 
 
-const xml = fs.readFileSync(rs('src/presetShapeDefinitions.xml'))
-// const xml = fs.readFileSync(rs('src/round-rect.xml'))
+// const xml = fs.readFileSync(rs('src/presetShapeDefinitions.xml'))
+const xml = fs.readFileSync(rs('src/round-rect.xml'))
 var options = {
     ignoreComment: true,
     // alwaysChildren: true,
@@ -55,7 +54,7 @@ for (let shapeDef of shapeDefs) {
     res += '}\n'
     functionTexts += res
 }
-fs.writeFileSync('./dist/index.js', beautify(helperFunctions + functionTexts))
+fs.writeFileSync('./tmp/index.js', beautify(helperFunctions + functionTexts))
 /**
  * 返回 参数列表
  */
@@ -94,9 +93,8 @@ function parseGuides(gdList) {
 }
 function parsePath(pathList) {
     const paths = _get(pathList, 'children', [])
-    
     const res = paths.map(path => {
-        let pathStr = ""
+        let pathData = []
         const { w: wRatio, h: hRatio } = path.attrs || {}
         path.children.forEach(directive => {
             switch (directive.name) {
@@ -108,7 +106,7 @@ function parsePath(pathList) {
                     if (hRatio) {
                         y = y == 0 ? 0 : `${y} * w / ${hRatio}`
                     }
-                    pathStr += `M\$\{${x}\},\$\{${y}\}`
+                    pathData.push(`M\$\{${x}\},\$\{${y}\}`)
                     break
                 }
                 case 'lnTo': {
@@ -119,12 +117,29 @@ function parsePath(pathList) {
                     if (hRatio) {
                         y = y === 0 ? 0 : `${y} * w / ${hRatio}`
                     }
-                    pathStr += `L\$\{${x}\},\$\{${y}\}`
+                    pathData.push(`L\$\{${x}\},\$\{${y}\}`)
                     break
                 }
                 case 'arcTo': {
                     let { wR, hR, stAng, swAng } = directive.attrs
-                    pathStr += `\$\{arcToPathA(${wR}, ${hR}, ${normalizeAng(stAng)}, ${normalizeAng(swAng)})\}`
+                    let prev = {
+                        x: 0,
+                        y: 0
+                    }
+                    if (pathData.length) {
+                        let prevPoint = pathData[pathData.length - 1]
+                        if (prevPoint[0] == 'M' || prevPoint[0] == 'L') {
+                            const [_, x, y] = prevPoint.match(/\${([\w\d\+\-\*\s\/]+)},\${([\w\d\+\-\*\s\/]*)}/)
+                            prev.x = x
+                            prev.y = y
+                        } else {
+                            console.log('暂时只支持前一点为 L 或者 M', prevPoint)
+                        }
+                    } else {
+                        console.log('arc 为第一点')
+                    }
+                    // 只考虑了前一点是  lineto 或者 moveto 情况
+                    pathData.push(`\$\{arcToPathA(${wR}, ${hR}, ${normalizeAng(stAng)}, ${normalizeAng(swAng)}, ${prev.x}, ${prev.y})\}`)
                     break
                 }
                 case 'quadBezTo': {
@@ -134,7 +149,7 @@ function parsePath(pathList) {
                     // console.log('not suppored', directive)
                 }
                 case 'close': {
-                    pathStr += 'Z'
+                    pathData.push('Z')
                     break
                 }
                 default:
@@ -142,7 +157,7 @@ function parsePath(pathList) {
                     break
             }
         })
-        return '`' + pathStr + '`'
+        return '`' + pathData.join('') + '`'
     })
     return res
 }
@@ -184,9 +199,9 @@ function parseFmla(fmlaStr) {
         case 'sat2':
             return `${x} * sin(atan(${z} / ${y}))`
         case 'sin':
-            return `${x} * sin(${180 / (y / 60000) * pi})`
+            return `${x} * sin((${y} / 60000) / 180 * pi)`
         case 'cos':
-            return `${x} * cos(${180 / (y / 60000) * pi})`
+            return `${x} * cos(${y} / 60000) / 180 * pi)`
         case 'sqrt':
             return `sqrt(${x})`
         case 'tan':
