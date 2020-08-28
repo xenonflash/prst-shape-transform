@@ -63,8 +63,8 @@ for (let shapeDef of shapeDefs) {
     `
   const logic = parseGuides(gdLst)
   res += logic
-  const paths = parsePath(pathLst)
-  res += `\nreturn [${paths.toString()}]\n`
+  const path = parsePath(pathLst)
+  res += `\n ${path}\n`
   res += '}\n'
   functionTexts += res
 }
@@ -117,6 +117,8 @@ function parseGuides(gdList) {
 }
 function parsePath(pathList) {
   const paths = _get(pathList, 'children', [])
+  const helperCode = []
+  let arcCounter = 0
   const res = paths.map(path => {
     let pathData = []
     const { w: wRatio, h: hRatio } = path.attrs || {}
@@ -161,8 +163,11 @@ function parsePath(pathList) {
               prev.x = x
               prev.y = y
               console.log('前一点为贝塞尔', prev)
-            } else if (/arcToPathA/.test(prevPoint)){
-              console.log('不支持的前一点', prevPoint)
+            } else if (/arc_/.test(prevPoint)){
+              // 拿到 前一点的helper code 变量名
+              const [_, prevArcVarName] = prevPoint.match(/(arc_\d+)\./)
+              prev.x = `${prevArcVarName}.end.x`
+              prev.y = `${prevArcVarName}.end.y`
             } else {
               console.log('不支持的前一点', prevPoint)
             }
@@ -170,7 +175,9 @@ function parsePath(pathList) {
             console.log('arc 为第一点')
           }
           // 只考虑了前一点是  lineto 或者 moveto 情况
-          pathData.push(`\$\{arcToPathA(${wR}, ${hR}, ${normalizeAng(stAng)}, ${normalizeAng(swAng)}, ${prev.x}, ${prev.y})\}`)
+          const varName = `arc_${arcCounter++}`
+          helperCode.push(`const ${varName} = arcToPathA(${wR}, ${hR}, ${normalizeAng(stAng)}, ${normalizeAng(swAng)}, ${prev.x}, ${prev.y})`)
+          pathData.push(`\$\{${varName}.path\}`)
           break
         }
         case 'quadBezTo': {
@@ -219,7 +226,10 @@ function parsePath(pathList) {
     })
     return '`' + pathData.join('') + '`'
   })
-  return res
+  return `
+    ${helperCode.join('\n')}
+    return [${res.toString()}]
+  `
 }
 function parseAvList(avList) {
   const list = _get(avList, 'children', [])

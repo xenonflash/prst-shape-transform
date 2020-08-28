@@ -15,8 +15,11 @@ export default function arcToPathA(wR, hR, startAng, endAng, preX, preY) {
     end = applyToPoint(matrix, end)
     start = applyToPoint(matrix, start)
     // 5. 得到平移变换后 x2 y2 的坐标，赋值给endX， endY
-    console.log(start, end)
-    return `A${wR},${hR},0,0,1,${end.x.toFixed(2)},${end.y.toFixed(2)}`
+    return {
+        path: `A${wR},${hR},0,0,1,${end.x.toFixed(2)},${end.y.toFixed(2)}`,
+        start,
+        end
+    }
 
 }
 
