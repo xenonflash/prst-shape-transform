@@ -19,12 +19,12 @@ module.exports = {
     },
     resolve: {
         alias: {
-            'prst-shape-transform': _rs('src/index.js')
+            'prst-shape-transform': _rs('dist/index.js')
         }
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: _rs('example/index.html')
         })
-    ]
+    ],
 }

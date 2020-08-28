@@ -17,5 +17,9 @@ module.exports = {
         use: ['babel-loader']
       }
     ]
+  },
+  node: {
+    fs: 'empty',
+    path: 'empty'
   }
 }
