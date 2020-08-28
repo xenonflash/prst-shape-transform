@@ -4,10 +4,10 @@ const shapeNames = Object.keys(prstShape)
 const svgs = []
 for(let shape of shapeNames) {
     // if(shape !== 'heart') continue
-    let svg = `<div style="text-align: center; margin: 15px; padding: 5px;display:inline-block"><svg width=100 height=100>`
+    let svg = `<div style="text-align: center; margin: 15px; padding: 5px;display:inline-block;overflow:visible"><svg width=100>`
     const paths = prstShape[shape](100, 100)
     paths.forEach(path => {
-        svg += `<path d="${path}"></path>`
+        svg += `<path stroke="#666" fill="rgba(50, 50, 50, 0.5)" d="${path}"></path>`
     })
     svg += `</svg><p style="font-size: 12px">${shape}</p></div>`
     svgs.push(svg)
