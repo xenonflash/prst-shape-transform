@@ -23,6 +23,8 @@ module.exports = {
         }
     },
     plugins: [
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({
+            template: _rs('example/index.html')
+        })
     ]
 }

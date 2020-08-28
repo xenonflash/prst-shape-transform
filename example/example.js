@@ -1,1 +1,0 @@
-document.documentElement.innerHTML = '你好'
