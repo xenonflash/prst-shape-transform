@@ -136,7 +136,8 @@ function parsePath(pathList) {
   const res = paths.map(path => {
     let pathData = []
     const { w: wRatio, h: hRatio } = path.attrs || {}
-    path.children.forEach(directive => {
+    while (path.children.length) {
+      const directive = path.children.shift()
       switch (directive.name) {
         case 'moveTo': {
           let { x, y } = directive.children[0].attrs
@@ -167,24 +168,7 @@ function parsePath(pathList) {
             y: 0
           }
           if (pathData.length) {
-            let prevPoint = pathData.slice(-1)[0]
-            if (/^[ML]/.test(prevPoint)) {
-              const [_, x, y] = prevPoint.match(/\${([\w\d\+\-\*\s\/]+)},\${([\w\d\+\-\*\s\/]*)}/)
-              prev.x = x
-              prev.y = y
-            } else if (/^[QTSC]/.test(prevPoint)) {
-              const [x, y] = prevPoint.split(',').slice(-1)[0].split(/\s/)
-              prev.x = x
-              prev.y = y
-              console.log('前一点为贝塞尔', prev)
-            } else if (/arc_/.test(prevPoint)){
-              // 拿到 前一点的helper code 变量名
-              const [_, prevArcVarName] = prevPoint.match(/(arc_\d+)\./)
-              prev.x = `${prevArcVarName}.end.x`
-              prev.y = `${prevArcVarName}.end.y`
-            } else {
-              console.log('不支持的前一点', prevPoint)
-            }
+            prev = getPreEndPoint(pathData.slice(-1)[0])
           } else {
             console.log('arc 为第一点')
           }
@@ -230,15 +214,19 @@ function parsePath(pathList) {
           // console.log('not suppored', directive)
         }
         case 'close': {
-          pathData.push('Z')
+          if (path.children.length === 0) {
+            pathData.push('Z')
+            // const prev = getPreEndPoint(pathData.slice(-2)[0])
+            // pathData.push(`M\$\{${prev.x}\},\$\{${prev.y}\}`)
+          }
           break
         }
         default:
           console.log('not supported', directive)
           break
       }
-    })
-    return '`' + pathData.join('') + '`'
+    }
+    return '`' + pathData.join(' ') + '`'
   })
   return `
     ${helperCode.join('\n')}
@@ -318,4 +306,29 @@ function arrailize(obj) {
   if (obj === undefined || obj === null) return []
   if (!Array.isArray(obj)) return [obj]
   return obj
+}
+
+// 获取路径中，某一点的前一个路径指令的终点坐标
+function getPreEndPoint(prevPoint) {
+  const prev = {
+    x: 0,
+    y: 0
+  }
+  if (/^[ML]/.test(prevPoint)) {
+    const [_, x, y] = prevPoint.match(/\${([\w\d\+\-\*\s\/]+)},\${([\w\d\+\-\*\s\/]*)}/)
+    prev.x = x
+    prev.y = y
+  } else if (/^[QTSC]/.test(prevPoint)) {
+    const [_, x, y] = prevPoint.match(/,\${([^,]+)}\s+\${([^,]+)}$/)
+    prev.x = x
+    prev.y = y
+  } else if (/arc_/.test(prevPoint)) {
+    // 拿到 前一点的helper code 变量名
+    const [_, prevArcVarName] = prevPoint.match(/(arc_\d+)\./)
+    prev.x = `${prevArcVarName}.end.x`
+    prev.y = `${prevArcVarName}.end.y`
+  } else {
+    console.log('不支持的前一点', prevPoint)
+  }
+  return prev
 }
