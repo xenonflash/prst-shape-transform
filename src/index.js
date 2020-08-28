@@ -25,6 +25,7 @@ const cos = Math.cos.bind(Math)
 const sin = Math.sin.bind(Math)
 const abs = Math.abs.bind(Math)
 const atan = Math.atan.bind(Math)
+const tan = Math.tan.bind(Math)
 const atan2 = Math.atan2.bind(Math)
 const max = Math.max.bind(Math)
 const min = Math.min.bind(Math)
@@ -49,7 +50,7 @@ for (let shapeDef of shapeDefs) {
   const params = parseAhList(ahLst)
   res += params
   res += '){\n'
-  const defaultParams = parseAvList(avLst)
+  const defaultParams = parseAvList(avLst, params)
   res += defaultParams
   res += `
         const l = 0
@@ -57,9 +58,22 @@ for (let shapeDef of shapeDefs) {
         const r = w
         const b = h
         const wd2 = w / 2 //猜的
+        const wd3 = w / 3 //猜的
+        const wd4 = w / 4 //猜的
+        const wd6 = w / 6 //猜的
+        const wd8 = w / 8 //猜的
+        const wd32 = w / 32 //猜的
         const hd2 = h / 2 //猜的
+        const hd3 = h / 3 //猜的
+        const hd4 = h / 4 //猜的
+        const hd6 = h / 6 //猜的
         const vc = h / 2 //猜的
         const hc = w / 2 //猜的
+        const ss = w < h ? w : h
+        const ssd6 = ss / 6
+        const ssd8 = ss / 8
+        const ssd32 = ss / 32
+        const ssd16 = ss / 16
     `
   const logic = parseGuides(gdLst)
   res += logic
@@ -95,7 +109,7 @@ function parseGuides(gdList) {
   let gds = _get(gdList, 'children')
   if (_isEmpty(gds)) return '// no guides'
   let res = `
-    const ss = w < h ? w : h
+    
     `
   const expressions = []
   gds.map(gd => {
@@ -231,11 +245,16 @@ function parsePath(pathList) {
     return [${res.toString()}]
   `
 }
-function parseAvList(avList) {
+function parseAvList(avList, paramList) {
   const list = _get(avList, 'children', [])
   let res = ''
   for (let defParam of list) {
-    res += `${defParam.attrs.name} = ${defParam.attrs.name} || ${parseFmla(defParam.attrs.fmla)}\n`
+    const varName = defParam.attrs.name
+    if (paramList.includes(varName)) {
+      res += `${varName} = ${varName} || ${parseFmla(defParam.attrs.fmla)}\n`
+    } else {
+      res += `const ${varName} = ${parseFmla(defParam.attrs.fmla)}\n`
+    }
   }
   return res
 }
