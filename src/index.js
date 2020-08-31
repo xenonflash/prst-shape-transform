@@ -163,6 +163,12 @@ function parsePath(pathList) {
         }
         case 'arcTo': {
           let { wR, hR, stAng, swAng } = directive.attrs
+          if (wRatio) {
+            wR = wR === 0 ? 0 : `${wR} * w / ${wRatio}`
+          }
+          if (hRatio) {
+            hR = hR === 0 ? 0 : `${hR} * w / ${hRatio}`
+          }
           let prev = {
             x: 0,
             y: 0

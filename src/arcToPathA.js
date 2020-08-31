@@ -39,14 +39,16 @@ function genArcPoint(wr, hr, stAng, swAng) {
     //     }
     // }
     // return res
+    let start = stAng
+    let end = start + swAng
     return {
         start: {
-            x: wr * Math.cos(r(stAng)),
-            y: hr * Math.sin(r(stAng))
+            x: wr * Math.cos(r(start)),
+            y: hr * Math.sin(r(start))
         },
         end: {
-            x: wr * Math.cos(r(stAng + swAng)),
-            y: hr * Math.sin(r(stAng + swAng))
+            x: wr * Math.cos(r(end)),
+            y: hr * Math.sin(r(end))
         }
     }
 }
