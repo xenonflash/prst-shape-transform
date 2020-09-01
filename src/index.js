@@ -186,10 +186,14 @@ function parsePath(pathList) {
         }
         case 'quadBezTo': {
           const [p1, p2] = directive.children.map(child => {
-            return {
-              x: child.attrs.x,
-              y: child.attrs.y
+            let { x, y } = child.attrs
+            if (wRatio) {
+              x = x === 0 ? 0 : `${x} * w / ${wRatio}`
             }
+            if (hRatio) {
+              y = y === 0 ? 0 : `${y} * w / ${hRatio}`
+            }
+            return { x, y }
           })
           // TODO 这里估计有问题， T的前面 只有同样是 T 或者 Q 才能简化
           // const prev = pathData[pathData.length - 1]
@@ -204,10 +208,14 @@ function parsePath(pathList) {
         case 'cubicBezTo': {
           // 前两个为控制点，最后一个为终点
           const [p1, p2, p3] = directive.children.map(child => {
-            return {
-              x: child.attrs.x,
-              y: child.attrs.y
+            let { x, y } = child.attrs
+            if (wRatio) {
+              x = x === 0 ? 0 : `${x} * w / ${wRatio}`
             }
+            if (hRatio) {
+              y = y === 0 ? 0 : `${y} * w / ${hRatio}`
+            }
+            return { x, y }
           })
           // TODO 这里估计有问题， S 的前面 只有同样是 S 或者 C 才能简化
           // const prev = pathData[pathData.length - 1]
