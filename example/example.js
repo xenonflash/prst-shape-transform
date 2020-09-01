@@ -7,7 +7,7 @@ for(let shape of shapeNames) {
     let svg = `<div style="text-align: center; margin: 15px; padding: 5px;display:inline-block;overflow:visible"><svg width=100 style="overflow: visible">`
     const paths = prstShape[shape](100, 100)
     paths.forEach(path => {
-        svg += `<path stroke="#666" fill="rgba(50, 50, 50, 0.5)" d="${path}"></path>`
+        svg += `<path stroke="#666" fill-opacity="${/Z$/.test(path) ? 0.5 : 0}" fill="rgba(100, 100, 100)" d="${path}"></path>`
     })
     svg += `</svg><p style="font-size: 12px">${shape}</p></div>`
     svgs.push(svg)

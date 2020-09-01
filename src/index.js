@@ -204,6 +204,7 @@ function parsePath(pathList) {
             pathData.push(`Q \$\{${p1.x}\} \$\{${p1.y}\},\${${p2.x}\} \$\{${p2.y}\}`)
           }
           // console.log('not supported', directive)
+          break
         }
         case 'cubicBezTo': {
           // 前两个为控制点，最后一个为终点
@@ -225,6 +226,7 @@ function parsePath(pathList) {
           } else {
             pathData.push(`C \$\{${p1.x}\} \$\{${p1.y}\},\$\{${p2.x}\} \$\{${p2.y}\},\${${p3.x}\} \$\{${p3.y}\}`)
           }
+          break
           // console.log('not suppored', directive)
         }
         case 'close': {
