@@ -22,7 +22,9 @@ export default function arcToPathA(wR, hR, startAng, swAng, preX, preY) {
         console.log(path)
     } else if (swAng > 60000 * 180) {
         path = `A${wR},${hR},0,1,1,${end.x.toFixed(2)},${end.y.toFixed(2)}`
-    } else {
+    } else if (swAng < 0) {
+        path = `A${wR},${hR},0,0,0,${end.x.toFixed(2)},${end.y.toFixed(2)}`
+    }else {
         path = `A${wR},${hR},0,0,1,${end.x.toFixed(2)},${end.y.toFixed(2)}`
     }
     return {
