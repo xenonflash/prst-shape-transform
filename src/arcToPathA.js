@@ -14,14 +14,14 @@ export default function arcToPathA(wR, hR, startAng, swAng, preX, preY) {
     end = applyToPoint(matrix, end)
     start = applyToPoint(matrix, start)
     // 5. 得到平移变换后 x2 y2 的坐标，赋值给endX， endY
-    // 需要考虑圆弧超过180的情况
     let path = ''
     if (swAng == 60000 * 360) {
-        let { end:halfEnd } = genArcPoint(wR, hR, startAng, swAng)
+        let { end:halfEnd } = genArcPoint(wR, hR, startAng, 60000 * 180)
         halfEnd = applyToPoint(matrix, halfEnd)
-        path = `A${wR},${hR},0,0,1,${halfEnd.x.toFixed(2)},${halfEnd.y.toFixed(2)}A${wR},${hR},1,1,1,${start.x.toFixed(2)},${start.y.toFixed(2)}`
+        path = `A${wR},${hR},0,1,0,${halfEnd.x.toFixed(2)},${halfEnd.y.toFixed(2)}A${wR},${hR},0,0,0,${start.x.toFixed(2)},${start.y.toFixed(2)}`
+        console.log(path)
     } else if (swAng > 60000 * 180) {
-        path = `A${wR},${hR},1,1,1,${end.x.toFixed(2)},${end.y.toFixed(2)}`
+        path = `A${wR},${hR},0,1,1,${end.x.toFixed(2)},${end.y.toFixed(2)}`
     } else {
         path = `A${wR},${hR},0,0,1,${end.x.toFixed(2)},${end.y.toFixed(2)}`
     }
@@ -35,20 +35,6 @@ export default function arcToPathA(wR, hR, startAng, swAng, preX, preY) {
 
 function genArcPoint(wr, hr, stAng, swAng) {
     const r = deg => Math.PI * (deg / 60000 / 180)
-    // const res = []
-    // if (stAng > swAng) swAng += 360
-    // while (stAng < swAng) {
-    //     res.push({
-    //         x: wr * Math.cos(r(stAng)),
-    //         y: hr * Math.sin(r(stAng))
-    //     })
-    //     if (swAng - stAng < 2) {
-    //         stAng = swAng
-    //     } else {
-    //         stAng += 1
-    //     }
-    // }
-    // return res
     let start = stAng
     let end = start + swAng
     return {

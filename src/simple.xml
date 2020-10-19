@@ -1,109 +1,120 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <presetShapeDefinitons>
-  <roundRect>
+  <smileyFace>
+
     <avLst xmlns="http://schemas.openxmlformats.org/drawingml/2006/main">
-      <gd name="adj" fmla="val 16667" />
+      <gd name="adj" fmla="val 4653" />
+
     </avLst>
+
     <gdLst xmlns="http://schemas.openxmlformats.org/drawingml/2006/main">
-      <gd name="a" fmla="pin 0 adj 50000" />
-      <gd name="x1" fmla="*/ ss a 100000" />
-      <gd name="x2" fmla="+- r 0 x1" />
-      <gd name="y2" fmla="+- b 0 x1" />
-      <gd name="il" fmla="*/ x1 29289 100000" />
-      <gd name="ir" fmla="+- r 0 il" />
-      <gd name="ib" fmla="+- b 0 il" />
+      <gd name="a" fmla="pin -4653 adj 4653" />
+      <gd name="x1" fmla="*/ w 4969 21699" />
+
+      <gd name="x2" fmla="*/ w 6215 21600" />
+
+      <gd name="x3" fmla="*/ w 13135 21600" />
+
+      <gd name="x4" fmla="*/ w 16640 21600" />
+
+      <gd name="y1" fmla="*/ h 7570 21600" />
+
+      <gd name="y3" fmla="*/ h 16515 21600" />
+
+      <gd name="dy2" fmla="*/ h a 100000" />
+
+      <gd name="y2" fmla="+- y3 0 dy2" />
+
+      <gd name="y4" fmla="+- y3 dy2 0" />
+
+      <gd name="dy3" fmla="*/ h a 50000" />
+
+      <gd name="y5" fmla="+- y4 dy3 0" />
+      <gd name="idx" fmla="cos wd2 2700000" />
+      <gd name="idy" fmla="sin hd2 2700000" />
+      <gd name="il" fmla="+- hc 0 idx" />
+      <gd name="ir" fmla="+- hc idx 0" />
+      <gd name="it" fmla="+- vc 0 idy" />
+      <gd name="ib" fmla="+- vc idy 0" />
+      <gd name="wR" fmla="*/ w 1125 21600" />
+      <gd name="hR" fmla="*/ h 1125 21600" />
     </gdLst>
+
     <ahLst xmlns="http://schemas.openxmlformats.org/drawingml/2006/main">
-      <ahXY gdRefX="adj" minX="0" maxX="50000">
-        <pos x="x1" y="t" />
+      <ahXY gdRefY="adj" minY="-4653" maxY="4653">
+        <pos x="hc" y="y4" />
       </ahXY>
     </ahLst>
+
     <cxnLst xmlns="http://schemas.openxmlformats.org/drawingml/2006/main">
       <cxn ang="3cd4">
         <pos x="hc" y="t" />
+      </cxn>
+      <cxn ang="3cd4">
+        <pos x="il" y="it" />
       </cxn>
       <cxn ang="cd2">
         <pos x="l" y="vc" />
       </cxn>
       <cxn ang="cd4">
+        <pos x="il" y="ib" />
+      </cxn>
+      <cxn ang="cd4">
         <pos x="hc" y="b" />
+      </cxn>
+      <cxn ang="cd4">
+        <pos x="ir" y="ib" />
       </cxn>
       <cxn ang="0">
         <pos x="r" y="vc" />
       </cxn>
-    </cxnLst>
-    <rect l="il" t="il" r="ir" b="ib" xmlns="http://schemas.openxmlformats.org/drawingml/2006/main" />
-    <pathLst xmlns="http://schemas.openxmlformats.org/drawingml/2006/main">
-      <path>
-        <moveTo>
-          <pt x="l" y="x1" />
-        </moveTo>
-        <arcTo wR="x1" hR="x1" stAng="cd2" swAng="cd4" />
-        <lnTo>
-          <pt x="x2" y="t" />
-        </lnTo>
-        <arcTo wR="x1" hR="x1" stAng="3cd4" swAng="cd4" />
-        <lnTo>
-          <pt x="r" y="y2" />
-        </lnTo>
-        <arcTo wR="x1" hR="x1" stAng="0" swAng="cd4" />
-        <lnTo>
-          <pt x="x1" y="b" />
-        </lnTo>
-        <arcTo wR="x1" hR="x1" stAng="cd4" swAng="cd4" />
-        <close />
-      </path>
-    </pathLst>
-  </roundRect>
-   <triangle>
-    <avLst xmlns="http://schemas.openxmlformats.org/drawingml/2006/main">
-      <gd name="adj" fmla="val 50000" />
-    </avLst>
-    <gdLst xmlns="http://schemas.openxmlformats.org/drawingml/2006/main">
-      <gd name="a" fmla="pin 0 adj 100000" />
-      <gd name="x1" fmla="*/ w a 200000" />
-      <gd name="x2" fmla="*/ w a 100000" />
-      <gd name="x3" fmla="+- x1 wd2 0" />
-    </gdLst>
-    <ahLst xmlns="http://schemas.openxmlformats.org/drawingml/2006/main">
-      <ahXY gdRefX="adj" minX="0" maxX="100000">
-        <pos x="x2" y="t" />
-      </ahXY>
-    </ahLst>
-    <cxnLst xmlns="http://schemas.openxmlformats.org/drawingml/2006/main">
       <cxn ang="3cd4">
-        <pos x="x2" y="t" />
-      </cxn>
-      <cxn ang="cd2">
-        <pos x="x1" y="vc" />
-      </cxn>
-      <cxn ang="cd4">
-        <pos x="l" y="b" />
-      </cxn>
-      <cxn ang="cd4">
-        <pos x="x2" y="b" />
-      </cxn>
-      <cxn ang="cd4">
-        <pos x="r" y="b" />
-      </cxn>
-      <cxn ang="0">
-        <pos x="x3" y="vc" />
+        <pos x="ir" y="it" />
       </cxn>
     </cxnLst>
-    <rect l="x1" t="vc" r="x3" b="b" xmlns="http://schemas.openxmlformats.org/drawingml/2006/main" />
+
+    <rect l="il" t="it" r="ir" b="ib"
+      xmlns="http://schemas.openxmlformats.org/drawingml/2006/main" />
+
     <pathLst xmlns="http://schemas.openxmlformats.org/drawingml/2006/main">
-      <path>
+      <path stroke="false" extrusionOk="false">
+
         <moveTo>
-          <pt x="l" y="b" />
+          <pt x="l" y="vc" />
         </moveTo>
-        <lnTo>
-          <pt x="x2" y="t" />
-        </lnTo>
-        <lnTo>
-          <pt x="r" y="b" />
-        </lnTo>
+        <arcTo wR="wd2" hR="hd2" stAng="cd2" swAng="21600000" />
+        <close />
+      </path>
+      <path fill="darkenLess" extrusionOk="false">
+
+        <moveTo>
+          <pt x="x2" y="y1" />
+        </moveTo>
+        <arcTo wR="wR" hR="hR" stAng="cd2" swAng="21600000" />
+        <moveTo>
+          <pt x="x3" y="y1" />
+        </moveTo>
+        <arcTo wR="wR" hR="hR" stAng="cd2" swAng="21600000" />
+      </path>
+      <path fill="none" extrusionOk="false">
+
+        <moveTo>
+          <pt x="x1" y="y2" />
+        </moveTo>
+        <quadBezTo>
+          <pt x="hc" y="y5" />
+          <pt x="x4" y="y2" />
+        </quadBezTo>
+      </path>
+      <path fill="none">
+
+        <moveTo>
+          <pt x="l" y="vc" />
+        </moveTo>
+        <arcTo wR="wd2" hR="hd2" stAng="cd2" swAng="21600000" />
         <close />
       </path>
     </pathLst>
-  </triangle>
+
+  </smileyFace>
 </presetShapeDefinitons>
