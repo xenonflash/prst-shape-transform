@@ -286,11 +286,11 @@ function parseFmla(fmlaStr) {
     case 'at2':
       return `atan2(${x}, ${y})` //TODO 可能有问题
     case 'cat2':
-      return `${x} * (cos(atan(${z} / ${y})))`
+      return `${x} * (cos(atan2(${y}, ${z})))`
     case 'mod':
       return `sqrt(${x} * ${x} + ${y} * ${y} + ${z} * ${z})`
     case 'sat2':
-      return `${x} * sin(atan(${z} / ${y}))`
+      return `${x} * sin(atan2(${y}, ${z}))`
     case 'sin':
       return `${x} * sin(${y} / 60000 / 180 * pi)`
     case 'cos':
