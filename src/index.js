@@ -31,6 +31,37 @@ const max = Math.max.bind(Math)
 const min = Math.min.bind(Math)
 const sqrt = Math.sqrt.bind(Math)
 const pi = Math.PI
+
+function getCommonVal(w, h) {
+  const ss = w < h ? w : h
+  const ssd6 = ss / 6
+  const ssd8 = ss / 8
+  const ssd32 = ss / 32
+  const ssd16 = ss / 16
+  return {
+    l: 0,
+    t: 0,
+    r: w,
+    b: h,
+    wd2: w / 2,
+    wd3: w / 3,
+    wd4: w / 4,
+    wd6: w / 6,
+    wd8: w / 8,
+    wd32: w / 32,
+    hd2: h / 2,
+    hd3: h / 3,
+    hd4: h / 4,
+    hd6: h / 6,
+    vc: h / 2,
+    hc: w / 2,
+    ss,
+    ssd6,
+    ssd8,
+    ssd32,
+    ssd16,
+  }
+}
 `
 let functionTexts = ""
 const CD_REG = /(\d*)cd(\d*)/i
@@ -53,28 +84,8 @@ for (let shapeDef of shapeDefs) {
   const defaultParams = parseAvList(avLst, params)
   res += defaultParams
   res += `
-        const l = 0
-        const t = 0
-        const r = w
-        const b = h
-        const wd2 = w / 2 //猜的
-        const wd3 = w / 3 //猜的
-        const wd4 = w / 4 //猜的
-        const wd6 = w / 6 //猜的
-        const wd8 = w / 8 //猜的
-        const wd32 = w / 32 //猜的
-        const hd2 = h / 2 //猜的
-        const hd3 = h / 3 //猜的
-        const hd4 = h / 4 //猜的
-        const hd6 = h / 6 //猜的
-        const vc = h / 2 //猜的
-        const hc = w / 2 //猜的
-        const ss = w < h ? w : h
-        const ssd6 = ss / 6
-        const ssd8 = ss / 8
-        const ssd32 = ss / 32
-        const ssd16 = ss / 16
-    `
+    const { l, t, r, b, wd2, wd3, wd4, wd6, wd8, wd32, hd2, hd3, hd4, hd6, vc, hc, ss, ssd6, ssd8, ssd32, ssd16, } = getCommonVal(w, h)
+  `
   const logic = parseGuides(gdLst)
   res += logic
   const path = parsePath(pathLst)
@@ -284,7 +295,7 @@ function parseFmla(fmlaStr) {
     case 'abs':
       return `abs(${x})`
     case 'at2':
-      return `atan2(${x}, ${y})` //TODO 可能有问题
+      return `atan2(${x}, ${y})`
     case 'cat2':
       return `${x} * (cos(atan2(${y}, ${z})))`
     case 'mod':
