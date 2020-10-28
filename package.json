@@ -1,6 +1,6 @@
 {
   "name": "prst-shape-transform",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "transform the xml shape define to javascript functions",
   "main": "dist/index.js",
   "dependencies": {
