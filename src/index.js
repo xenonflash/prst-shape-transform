@@ -288,20 +288,21 @@ function parseFmla(fmlaStr) {
       return `${y} < ${x} ? ${x} : (${y} > ${z} ? ${z} : ${y})`
     case '*/':
     case '+-':
-    case '+/':
       return `${x} ${op[0]} ${y} ${op[1]} ${z}`
+    case '+/':
+      return `(${x} + ${y}) / ${z}`
     case '?:':
       return `${x} > 0 ? ${y} : ${z}`
     case 'abs':
       return `abs(${x})`
     case 'at2':
-      return `atan2(${x}, ${y})`
+      return `atan(${y} / ${x})`
     case 'cat2':
-      return `${x} * (cos(atan2(${y}, ${z})))`
+      return `${x} * (cos(atan(${z} / ${y})))`
     case 'mod':
       return `sqrt(${x} * ${x} + ${y} * ${y} + ${z} * ${z})`
     case 'sat2':
-      return `${x} * sin(atan2(${y}, ${z}))`
+      return `${x} * sin(atan(${z} / ${y}))`
     case 'sin':
       return `${x} * sin(${y} / 60000 / 180 * pi)`
     case 'cos':
