@@ -156,7 +156,7 @@ function parsePath(pathList) {
             x = x == 0 ? 0 : `${x} * w / ${wRatio}`
           }
           if (hRatio) {
-            y = y == 0 ? 0 : `${y} * w / ${hRatio}`
+            y = y == 0 ? 0 : `${y} * h / ${hRatio}`
           }
           pathData.push(`M\$\{${x}\},\$\{${y}\}`)
           break
@@ -167,7 +167,7 @@ function parsePath(pathList) {
             x = x === 0 ? 0 : `${x} * w / ${wRatio}`
           }
           if (hRatio) {
-            y = y === 0 ? 0 : `${y} * w / ${hRatio}`
+            y = y === 0 ? 0 : `${y} * h / ${hRatio}`
           }
           pathData.push(`L\$\{${x}\},\$\{${y}\}`)
           break
@@ -178,7 +178,7 @@ function parsePath(pathList) {
             wR = wR === 0 ? 0 : `${wR} * w / ${wRatio}`
           }
           if (hRatio) {
-            hR = hR === 0 ? 0 : `${hR} * w / ${hRatio}`
+            hR = hR === 0 ? 0 : `${hR} * h / ${hRatio}`
           }
           let prev = {
             x: 0,
@@ -202,7 +202,7 @@ function parsePath(pathList) {
               x = x === 0 ? 0 : `${x} * w / ${wRatio}`
             }
             if (hRatio) {
-              y = y === 0 ? 0 : `${y} * w / ${hRatio}`
+              y = y === 0 ? 0 : `${y} * h / ${hRatio}`
             }
             return { x, y }
           })
@@ -225,7 +225,7 @@ function parsePath(pathList) {
               x = x === 0 ? 0 : `${x} * w / ${wRatio}`
             }
             if (hRatio) {
-              y = y === 0 ? 0 : `${y} * w / ${hRatio}`
+              y = y === 0 ? 0 : `${y} * h / ${hRatio}`
             }
             return { x, y }
           })
@@ -304,13 +304,13 @@ function parseFmla(fmlaStr) {
     case 'sat2':
       return `${x} * sin(atan(${z} / ${y}))`
     case 'sin':
-      return `${x} * sin(${y} / 60000 / 180 * pi)`
+      return `${y} > 1000 ? (${x} * sin(${y} / 60000 / 180 * pi)) : ${x} * sin(${y})`
     case 'cos':
-      return `${x} * cos(${y} / 60000 / 180 * pi)`
+      return `${y} > 1000 ? (${x} * cos(${y} / 60000 / 180 * pi)) : ${x} * sin(${y})`
     case 'sqrt':
       return `sqrt(${x})`
     case 'tan':
-      return `${x} * tan(${y} / 60000 / 180 * pi)`
+      return `${y} > 1000 ? (${x} * tan(${y} / 60000 / 180 * pi)) : ${x} * sin(${y})`
     case 'min':
       return `min(${x}, ${y})`
     case 'max':
